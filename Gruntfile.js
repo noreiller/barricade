@@ -113,16 +113,23 @@ module.exports = function (grunt) {
 				, tasks: ['less']
 			}
 		}
+		, 'gh-pages': {
+			options: {
+				base: 'dist'
+			}
+			, src: ['**']
+		}
 	});
 
-	grunt.loadNpmTasks('grunt-contrib-jshint');
 	grunt.loadNpmTasks('grunt-contrib-clean');
-	grunt.loadNpmTasks('grunt-contrib-less');
 	grunt.loadNpmTasks('grunt-contrib-copy');
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+	grunt.loadNpmTasks('grunt-contrib-less');
+	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadNpmTasks('grunt-gh-pages');
+	grunt.loadNpmTasks('grunt-notify');
 	grunt.loadNpmTasks('grunt-replace');
 	grunt.loadNpmTasks('grunt-requirejs');
-	grunt.loadNpmTasks('grunt-contrib-watch');
-	grunt.loadNpmTasks('grunt-notify');
 
 	grunt.registerTask('build', ['jshint', 'clean', 'less']);
 	grunt.registerTask('copy:dev', ['copy:templates', 'copy:medias', 'copy:scripts']);
@@ -130,6 +137,7 @@ module.exports = function (grunt) {
 
 	grunt.registerTask('dev', ['build', 'copy:dev', 'watch']);
 	grunt.registerTask('prod', ['build', 'copy:prod', 'replace', 'requirejs']);
+	grunt.registerTask('publish', ['prod', 'gh-pages']);
 
 	grunt.registerTask('default', ['build']);
 };

@@ -1,6 +1,6 @@
 {
-  "name": "meerson-front",
-  "version": "0.0.0",
+  "name": "barricade",
+  "version": "0.3",
   "authors": [
     "Aurélien MANCA <aurelien@amanca.fr>"
   ],
@@ -16,7 +16,8 @@
     "grunt-replace": "^0.5.1",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-requirejs": "~0.4.0",
-    "requirejs-text": "~2.0.10"
+    "requirejs-text": "~2.0.10",
+    "grunt-gh-pages": "^0.9.1"
   },
   "dependencies": {
     "requirejs": "^2.1.11",

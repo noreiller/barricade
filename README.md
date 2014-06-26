@@ -5,6 +5,7 @@ See https://en.wikipedia.org/wiki/Malefiz
 
 ## To do
 
+* Get rid of this alert with the name (lazy me...)
 * Design the control panel
 * Align the board in the center of the page
 * Enhance the notification panel w/ player specific informations (color when specific to user) and colored icon (click/open to back to normal)
