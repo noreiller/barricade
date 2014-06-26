@@ -1,0 +1,32 @@
+{
+  "name": "meerson-front",
+  "version": "0.0.0",
+  "authors": [
+    "Aurélien MANCA <aurelien@amanca.fr>"
+  ],
+  "private": true,
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-contrib-jshint": "^0.1.1",
+    "grunt-contrib-nodeunit": "^0.1.2",
+    "grunt-contrib-less": "^0.5.2",
+    "grunt-contrib-watch": "^0.4.4",
+    "grunt-notify": "^0.3.0",
+    "grunt-contrib-copy": "^0.4.1",
+    "grunt-replace": "^0.5.1",
+    "grunt-contrib-clean": "~0.5.0",
+    "grunt-requirejs": "~0.4.0",
+    "requirejs-text": "~2.0.10"
+  },
+  "dependencies": {
+    "requirejs": "^2.1.11",
+    "backbone.babysitter": "^0.1.2",
+    "backbone": "^1.1.2",
+    "underscore": "^1.6.0",
+    "randomcolor": "^0.1.1",
+    "easystarjs": "^0.1.7",
+    "normalize.css": "^3.0.1",
+    "jquery.requestAnimationFrame": "git://github.com/gnarf/jquery-requestAnimationFrame",
+    "text": "git://github.com/requirejs/text"
+  }
+}

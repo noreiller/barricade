@@ -1,0 +1,24 @@
+#controls {
+	._control();
+	display: none;
+	height: auto;
+	left: 1em;
+	right: auto;
+	width: auto;
+	z-index: 2;
+
+	&.set {
+		display: block;
+	}
+
+	&.unset {
+		display: none;
+	}
+
+	.button {
+		cursor: pointer;
+		&.unset {
+			display: none;
+		}
+	}
+}

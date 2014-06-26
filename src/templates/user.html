@@ -1,0 +1,25 @@
+<h1 class="title"><%= dict.barricade %></h1>
+<h2 class="subtitle"><%= dict.user_settings_title %></h2>
+<form class="settings form-block" name="settings">
+	<fieldset class="fields">
+		<label for="name"><%= dict.settings_name %></label>
+		<input type="text" name="name" id="name" value="<%= name %>" />
+	</fieldset>
+	<fieldset class="fields">
+		<label for="color"><%= dict.settings_color %></label>
+		<input type="color" name="color" id="color" value="<%= color %>" />
+	</fieldset>
+	<fieldset class="fields">
+		<label for="language"><%= dict.settings_language %></label>
+		<select name="language" id="language">
+			<% _.each(languages, function (language) { %>
+				<option value="<%= language.value %>" <% if (language.value === dict.language) { %>selected="selected"<% } %>>
+					<%= language.name %>
+				</option>
+			<% }) %>
+		</select>
+	</fieldset>
+	<fieldset class="actions">
+		<button type="submit"><%= dict.user_settings_submit %></button>
+	</fieldset>
+</form>

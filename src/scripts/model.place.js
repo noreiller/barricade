@@ -1,0 +1,129 @@
+define([
+	'underscore'
+	, 'backbone'
+	, 'tools'
+	, 'game.events'
+	, 'model.abstract'
+], function (_, Backbone, Tools, Events, AbstractModel) {
+	'use strict';
+
+	var Model = AbstractModel.extend({
+		defaults: {
+			background: false
+			, col: -1
+			, color: false
+			, name: 'place'
+			, origin: {}
+			, path: false
+			, piece: false
+			, row: -1
+			, moveable: false
+			, selected: false
+			, value: 1
+			, pieceId: -1
+			, ai: false
+		}
+
+		, initialize: function () {
+			_.bindAll(this
+				, 'mutatesTo'
+				, 'pieceMoved'
+				, 'reset'
+				, 'isAI'
+				, 'isPath'
+				, 'isHome'
+				, 'isBarricade'
+				, 'isGoal'
+				, 'hasPiece'
+				, 'hasPlayer'
+				, 'hasBarricade'
+			);
+
+			this.set('origin', _.omit(this.toJSON(), 'origin'));
+
+			if (this.get('piece')) {
+				this.set('pieceId', this.cid);
+			}
+
+			return this;
+		}
+
+		, mutatesTo: function (attributes) {
+			attributes.selected = this.defaults.selected;
+			attributes.moveable = this.defaults.moveable;
+
+			if (attributes.piece) {
+				this.trigger('mutates', attributes);
+			}
+
+			this.set(_.omit(attributes, 'row', 'col', 'path', 'origin'));
+
+			return this;
+		}
+
+		, pieceMoved: function () {
+			var attributes = this.get('origin');
+
+			attributes.piece = this.defaults.piece;
+			attributes.pieceId = this.defaults.pieceId;
+
+			if (this.isBarricade()) {
+				// It becomes a path
+				// @todo find a better way to set value = 1
+				attributes.value = this.defaults.value;
+			}
+
+			this.mutatesTo(attributes);
+
+			return this;
+		}
+
+		, reset: function () {
+			this.mutatesTo(this.get('origin'));
+
+			return this;
+		}
+
+		, isAI: function () {
+			return !!this.get('ai');
+		}
+
+		/**
+		 * All places are a Path
+		 * @return {Boolean}
+		 */
+		, isPath: function () {
+			return !!this.get('path');
+		}
+
+		, isHome: function () {
+			return this.get('path') === 'home';
+		}
+
+		, isBarricade: function () {
+			return this.get('path') === 'barricade';
+		}
+
+		, isGoal: function () {
+			return this.get('path') === 'goal';
+		}
+
+		/**
+		 * All pieces are a Piece
+		 * @return {Boolean} [description]
+		 */
+		, hasPiece: function () {
+			return !!this.get('piece');
+		}
+
+		, hasPlayer: function () {
+			return this.get('piece') === 'player';
+		}
+
+		, hasBarricade: function () {
+			return this.get('piece') === 'barricade';
+		}
+	});
+
+	return Model;
+});

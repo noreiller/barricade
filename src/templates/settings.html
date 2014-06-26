@@ -1,0 +1,37 @@
+<h1 class="title"><%= i18n.barricade %></h1>
+<h2 class="subtitle"><%= i18n.settings_title %></h2>
+<form class="settings form-block" name="settings">
+	<fieldset class="fields">
+		<label for="mapName"><%= i18n.settings_mapName %></label>
+		<label>
+			<input type="radio" name="mapName" value="map2players" />
+			<%= i18n.settings_mapName_2 %>
+			<em><%= i18n.settings_mapName_2_legend %></em>
+		</label>
+		<label>
+			<input type="radio" name="mapName" value="map3players" />
+			<%= i18n.settings_mapName_3 %>
+			<em><%= i18n.settings_mapName_3_legend %></em>
+		</label>
+		<label>
+			<input type="radio" name="mapName" value="map4players" />
+			<%= i18n.settings_mapName_4 %>
+			<em><%= i18n.settings_mapName_4_legend %></em>
+		</label>
+	</fieldset>
+	<fieldset class="fields">
+		<label for="language"><%= i18n.settings_language %></label>
+		<select name="language" id="language">
+			<% _.each(languages, function (language) { %>
+				<option value="<%= language.value %>" <% if (language.value === i18n.language) { %>selected="selected"<% } %>>
+					<%= language.name %>
+				</option>
+			<% }) %>
+		</select>
+	</fieldset>
+	<fieldset class="actions">
+		<button type="submit"><%= i18n.settings_submit %></button>
+	</fieldset>
+</form>
+<span class="rules"><a href="<%= i18n.rules_link %>" target="_blank"><%= i18n.rules %></a></span>
+<span class="version"><%= i18n.version %></span>

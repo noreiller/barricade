@@ -1,0 +1,49 @@
+.form-block {
+	fieldset {
+		border: 0;
+		margin-top: 20px;
+
+		&.fields {}
+		&.actions {
+			margin-top: 20px;
+		}
+	}
+
+	legend {
+		text-decoration: underline;
+	}
+
+	label {
+		cursor: pointer;
+		display: block;
+		padding: .25em .5em;
+
+		em {
+			._font-size(@font-size-s);
+			display: block;
+			white-space: nowrap;
+		}
+	}
+
+	input,
+	select {
+		background-color: transparent;
+		border: 1px solid;
+		border-radius: 2px;
+		padding: .25em .5em;
+	}
+
+	input[type="radio"],
+	input[type="checkbox"] {
+		margin-right: .25em;
+		vertical-align: middle;
+	}
+
+	button {
+		background-color: #fff;
+		border: 0;
+		border-radius: 2px;
+		color: #000;
+		padding: .25em .5em;
+	}
+}
