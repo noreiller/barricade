@@ -22,6 +22,7 @@ define([
 		, game_player_resumed: '%name a remis le jeu en marche.'
 		, game_player_turn: "Le tour est passé à %name."
 		, game_player_wins: "%name a gagné la partie."
+		, pause_title: "Pause"
 		, rules: "Règles du jeu"
 		, rules_link: "https://fr.wikipedia.org/wiki/Barricade_%28jeu%29#D.C3.A9roulement"
 		, settings_color: "Couleur"
@@ -34,6 +35,7 @@ define([
 		, settings_mapName_4: "3 ordinateurs"
 		, settings_mapName_4_legend: "(mode grande bataille !)"
 		, settings_name: "Nom"
+		, settings_reset: "Annuler"
 		, settings_submit: "C'est parti!"
 		, settings_title: "Choisissez vos réglages"
 		, user_settings_title: "Paramètres utilisateur"

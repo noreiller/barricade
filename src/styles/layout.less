@@ -3,12 +3,37 @@ html, body {
 	height: 100%;
 }
 body {
-	._font-size(@font-size-m);
+	._rem-px(font-size, @font-size-m);
 	background: url('../medias/square_dark_texture.png');
 	font-family: Arial, Helvetica, sans-serif;
-}
-#container {
-	height: 100%;
 	position: relative;
-	width: 100%;
+}
+
+.control {
+	._rem-px(width, 4);
+	._rem-px(height, 4);
+	background-color: @color-dark;
+	border-radius: .5em;
+	border: 1px solid @color-light;
+	color: @color-light;
+	display: inline-block;
+	padding: .25em;
+	text-align: center;
+
+	.icon {
+		height: 70%;
+		vertical-align: middle;
+		width: 70%;
+	}
+
+	.label {
+		display: none;
+	}
+
+	&:focus,
+	&:hover {
+		background: @color-light;
+		color: @color-dark;
+		border-color: @color-dark;
+	}
 }

@@ -1,14 +1,14 @@
-// PX/REM FONT SIZES
-._font-size (@sizeValue) {
-  @remValue: @sizeValue;
-  @pxValue: (@sizeValue * 10);
-  font-size: ~"@{pxValue}px";
-  font-size: ~"@{remValue}rem";
+// REM/PX PROPERTIES
+._rem-px (@property, @value) {
+	@remValue: @value;
+	@pxValue: (@value * 10);
+
+	@{property}: ~"@{pxValue}px";
+	@{property}: ~"@{remValue}rem";
 }
 
 // BOARD PIECES
 ._piece () {
-	// border-radius: 50%;
 	border: 1px solid;
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
@@ -35,7 +35,7 @@
 }
 
 // BUTTON(S) CONTROL
-._control {
+._control () {
 	background-color: #eee;
 	border: 1px solid #eee;
 	border-radius: .5em;
@@ -49,35 +49,6 @@
 	width: 1em;
 	top: 1em;
 	right: 1em;
-}
-
-// PANELS
-._panel {
-	background-color: #000;
-	background-color: rgba(0, 0, 0, .75);
-	bottom: 0;
-	color: #fff;
-	left: 0;
-	padding: 20px;
-	position: absolute;
-	right: 0;
-	text-align: center;
-	top: 0;
-	z-index: 3;
-
-	&.unset {
-		display: none;
-	}
-
-	a {
-		color: #fff;
-	}
-
-	.title {
-		letter-spacing: 10px;
-		text-shadow: 0 0 2px @color-light;
-		text-transform: uppercase;
-	}
 }
 
 // VENDOR TRANSFORM PROPERTY

@@ -36,8 +36,6 @@
 
 					this.el.classList.remove('in');
 
-					this.el.style.width = this.el.offsetWidth + 'px';
-
 					if (User.storage.get('turn') === this.model.get('turn')) {
 						this.el.classList.add('in');
 					}

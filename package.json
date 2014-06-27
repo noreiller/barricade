@@ -1,6 +1,6 @@
 {
   "name": "barricade",
-  "version": "0.3",
+  "version": "0.4.0",
   "authors": [
     "Aurélien MANCA <aurelien@amanca.fr>"
   ],
@@ -9,14 +9,13 @@
     "grunt": "~0.4.1",
     "grunt-contrib-jshint": "^0.1.1",
     "grunt-contrib-nodeunit": "^0.1.2",
-    "grunt-contrib-less": "^0.5.2",
+    "grunt-contrib-less": "0.11.0",
     "grunt-contrib-watch": "^0.4.4",
     "grunt-notify": "^0.3.0",
     "grunt-contrib-copy": "^0.4.1",
     "grunt-replace": "^0.5.1",
     "grunt-contrib-clean": "~0.5.0",
     "grunt-requirejs": "~0.4.0",
-    "requirejs-text": "~2.0.10",
     "grunt-gh-pages": "^0.9.1"
   },
   "dependencies": {

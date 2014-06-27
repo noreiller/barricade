@@ -11,13 +11,9 @@
 				this.unbind();
 
 				if (this.onClose) {
-					this.onClose();
+					this.onClose.apply(this, arguments);
 				}
 
-				return this;
-			}
-
-			, onClose: function () {
 				return this;
 			}
 
@@ -33,12 +29,20 @@
 				this.el.classList.remove('set');
 				this.el.classList.add('unset');
 
+				if (this.onHide) {
+					this.onHide.apply(this, arguments);
+				}
+
 				return this;
 			}
 
 			, show: function () {
 				this.el.classList.remove('unset');
 				this.el.classList.add('set');
+
+				if (this.onShow) {
+					this.onShow.apply(this, arguments);
+				}
 
 				return this;
 			}

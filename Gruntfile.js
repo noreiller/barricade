@@ -112,6 +112,12 @@ module.exports = function (grunt) {
 				]
 				, tasks: ['less']
 			}
+			, medias: {
+				files: [
+					"src/medias/*"
+				]
+				, tasks: ['copy:medias']
+			}
 		}
 		, 'gh-pages': {
 			options: {

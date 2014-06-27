@@ -10,7 +10,7 @@ define([
 		defaults: {
 			language: false
 			, language_name: 'language_name'
-			, version: '0.3'
+			, version: '0.4.0'
 			, barricade: 'barricade'
 			, control_pass_turn: 'control_pass_turn'
 			, control_pause_game: 'control_pause_game'
@@ -27,6 +27,7 @@ define([
 			, game_player_resumed: 'game_player_resumed'
 			, game_player_turn: 'game_player_turn'
 			, game_player_wins: 'game_player_wins'
+			, pause_title: 'pause_title'
 			, rules: "rules"
 			, rules_link: "rules_link"
 			, settings_color: "settings_color"
@@ -39,6 +40,7 @@ define([
 			, settings_mapName_4: 'settings_mapName_4'
 			, settings_mapName_4_legend: 'settings_mapName_4_legend'
 			, settings_name: 'settings_name'
+			, settings_reset: 'settings_reset'
 			, settings_submit: 'settings_submit'
 			, settings_title: 'settings_title'
 			, user_settings_title: "user_settings_title"

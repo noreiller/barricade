@@ -7,20 +7,17 @@
 		, 'game.events'
 		, 'game.user'
 		, 'view.abstract'
-		, 'text!../templates/settings.html'
-	], function (_, Backbone, Tools, Events, User, AbstractView, settingsTpl) {
+		, 'text!../templates/pause.html'
+	], function (_, Backbone, Tools, Events, User, AbstractView, pauseTpl) {
 		'use strict';
 
 		var View = AbstractView.extend({
-			template: _.template(settingsTpl)
+			template: _.template(pauseTpl)
 
 			, render: function () {
 				this.empty();
 
-				this.el.innerHTML = this.template({
-					i18n: User.storage.get('dict')
-					, languages: User.storage.get('languages')
-				});
+				this.el.innerHTML = this.template(User.storage.toJSON());
 
 				return this;
 			}

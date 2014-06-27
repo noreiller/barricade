@@ -22,6 +22,7 @@ define([
 		, game_player_resumed: '%name resumed the game.'
 		, game_player_turn: "The turn passed to %name."
 		, game_player_wins: "%name won the game."
+		, pause_title: "Pause"
 		, rules: "Rules of the game"
 		, rules_link: "https://en.wikipedia.org/wiki/Malefiz#Rules"
 		, settings_color: "Color"
@@ -34,6 +35,7 @@ define([
 		, settings_mapName_4: "3 computers"
 		, settings_mapName_4_legend: "(mode big battle!)"
 		, settings_name: "Name"
+		, settings_reset: "Cancel"
 		, settings_submit: "Go!"
 		, settings_title: "Choose your settings"
 		, user_settings_title: "User settings"

@@ -6,20 +6,26 @@
 		, 'tools'
 		, 'game.events'
 		, 'view.abstract'
-	], function (_, Backbone, Tools, Events, AbstractView) {
+		, 'text!../templates/control.html'
+	], function (_, Backbone, Tools, Events, AbstractView, controlTpl) {
 		'use strict';
 
 		var View = AbstractView.extend({
 			tagName: 'button'
+			, className: 'control'
+
+			, template: _.template(controlTpl)
 
 			, events: {
-				'click': 'control'
+				'click': 'controlClickListener'
 			}
 
 			, initialize: function (options) {
-				_.bindAll(this, 'render', 'control');
+				_.bindAll(this, 'render', 'controlClickListener', 'pause', 'resume');
 
 				this.listenTo(Events, 'game:language', this.render);
+				this.listenTo(Events, 'game:pause', this.pause);
+				this.listenTo(Events, 'game:resume', this.resume);
 
 				this.render();
 
@@ -29,23 +35,38 @@
 			, render: function () {
 				this.empty();
 
-				this.el.classList.add('button');
-				this.el.classList.add(this.model.get('name'));
+				this.el.value = this.model.get('event');
+				this.el.title = Tools.getI18n(this.model.get('label'));
 
-				this.el.appendChild(document.createTextNode(
-					Tools.getI18n(this.model.get('label'))
-				));
+				this.el.innerHTML = this.template(_.extend(this.model.toJSON(), {
+					label: this.el.title
+				}));
 
 				return this;
 			}
 
-			, control: function () {
-				Events.trigger(this.model.get('event')
-					? this.model.get('event')
-					: 'game:' + this.model.get('name')
-				);
+			, controlClickListener: function (event) {
+				Events.trigger(event.currentTarget.value);
 
 				return this;
+			}
+
+			, pause: function () {
+				if (['resume', 'pass'].indexOf(this.model.get('name')) !== -1) {
+					this.show();
+				}
+				else {
+					this.hide();
+				}
+			}
+
+			, resume: function () {
+				if (['pause', 'pass'].indexOf(this.model.get('name')) !== -1) {
+					this.show();
+				}
+				else {
+					this.hide();
+				}
 			}
 		});
 

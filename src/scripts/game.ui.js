@@ -5,25 +5,19 @@ define([
 	, 'game.events'
 	, 'game.user'
 	, 'view.board'
-	, 'view.settings'
 	, 'view.controls'
 	, 'view.notification'
 	, 'view.window'
 	, 'view.dice'
 	, 'view.turn'
-	, 'view.user'
-], function (_, Backbone, Tools, Events, User, BoardView, SettingsView, ControlsView, NotificationView, WindowView, DiceView, TurnView, UserView) {
+	, 'view.panel'
+], function (_, Backbone, Tools, Events, User, BoardView, ControlsView, NotificationView, WindowView, DiceView, TurnView, PanelView) {
 	'use strict';
 
 	var UI = {};
 
 	UI.render = function () {
 		this._views = new Backbone.ChildViewContainer();
-
-		this._views.add(new SettingsView({
-			model: this._settings
-			, el: '#settings'
-		}), 'settings');
 
 		this._views.add(new DiceView({
 			model: this._settings
@@ -49,9 +43,9 @@ define([
 			el: '#notification'
 		}), 'notification');
 
-		this._views.add(new UserView({
-			el: '#user'
-		}), 'user');
+		this._views.add(new PanelView({
+			el: '#panel'
+		}), 'panel');
 
 		this._views.add(new WindowView(), 'window');
 
@@ -68,7 +62,9 @@ define([
 			try {
 				this._views.findByCustom('board').updateViewport();
 			}
-			catch (e) {}
+			catch (e) {
+				Events.trigger('game:error', e);
+			}
 		}
 
 		return this;
@@ -89,7 +85,9 @@ define([
 				// hide others
 				this._views.findByCustom('controls').hide();
 			}
-			catch (e) {}
+			catch (e) {
+				Events.trigger('game:error', e);
+			}
 		}
 
 		return this;

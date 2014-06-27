@@ -19,7 +19,7 @@
 		padding: .25em .5em;
 
 		em {
-			._font-size(@font-size-s);
+			._rem-px(font-size, @font-size-s);
 			display: block;
 			white-space: nowrap;
 		}
@@ -37,6 +37,12 @@
 	input[type="checkbox"] {
 		margin-right: .25em;
 		vertical-align: middle;
+	}
+
+	input[type="color"] {
+		cursor: pointer;
+		height: 1.75em;
+		padding: 0;
 	}
 
 	button {

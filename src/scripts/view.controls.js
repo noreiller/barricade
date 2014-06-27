@@ -12,12 +12,12 @@
 
 		var View = AbstractView.extend({
 			initialize: function (options) {
-				_.bindAll(this, 'render', 'renderItem', 'pause', 'resume');
+				_.bindAll(this, 'render', 'renderItem');
 
 				this.views = new Backbone.ChildViewContainer();
 
-				this.listenTo(Events, 'game:pause', this.pause);
-				this.listenTo(Events, 'game:resume', this.resume);
+				this.listenTo(Events, 'game:pause', this.hide);
+				this.listenTo(Events, 'game:resume', this.show);
 
 				this.render();
 
@@ -43,24 +43,6 @@
 				this.views.add(itemView, item.get('name'));
 
 				return this;
-			}
-
-			, pause: function () {
-				try {
-					this.views.findByCustom('pause').hide();
-					this.views.findByCustom('resume').show();
-				}
-				catch (e) {}
-			}
-
-			, resume: function () {
-				this.show();
-
-				try {
-					this.views.findByCustom('resume').hide();
-					this.views.findByCustom('pause').show();
-				}
-				catch (e) {}
 			}
 		});
 

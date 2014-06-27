@@ -31,24 +31,17 @@
 			this._places = new BoardCollection();
 			this._settings = new SettingsModel();
 			this._controls = new ControlsCollection([{
-				name: 'pass'
-				, label: 'control_pass_turn'
-			}, {
 				name: 'pause'
+				, event: 'game:pause'
 				, label: 'control_pause_game'
 			}, {
 				name: 'resume'
+				, event: 'game:resume'
 				, label: 'control_resume_game'
 			}, {
-				name: 'reset'
-				, label: 'control_reset_game'
-			}, {
-				name: 'user-settings-open'
-				, event: 'game:user:open'
-				, label: 'control_user_settings'
-			// }, {
-			// 	name: 'settings'
-			// 	, label: 'show the settings panel'
+				name: 'pass'
+				, event: 'game:pass'
+				, label: 'control_pass_turn'
 			}]);
 			this._i18n = new I18nCollection(I18N);
 
@@ -107,6 +100,7 @@
 			this.listenTo(Events, 'game:resume', this.resumeGame, this);
 			this.listenTo(Events, 'game:selection', this.placeSelected, this);
 			this.listenTo(Events, 'game:settings', this.startGame, this);
+			this.listenTo(Events, 'game:settings:update', this.updateSettings, this);
 			this.listenTo(Events, 'game:user:language', this.updateUserLanguage, this);
 			this.listenTo(Events, 'game:user:update', this.updateUser, this);
 			this.listenTo(Events, 'game:won', this.stopGame, this);
@@ -117,7 +111,7 @@
 		App.startGame = function () {
 			if (this._settings.get('mapName')) {
 				// Hide the settings panel
-				Events.trigger('game:settings:close');
+				Events.trigger('game:panel:close');
 
 				// Un-pause the game
 				Events.trigger('game:resume');
@@ -127,7 +121,7 @@
 			}
 			else {
 				// Show the settings panel
-				Events.trigger('game:settings:open');
+				Events.trigger('game:panel:settings');
 			}
 
 			return this;
@@ -162,39 +156,43 @@
 			this._players.reset();
 
 			// Show the settings panel
-			Events.trigger('game:settings:open');
+			Events.trigger('game:panel:settings');
 
 			return this;
 		};
 
 		App.resumeGame = function () {
-			// Set the game on
-			this._settings.set('paused', false);
+			if (this._settings.get('paused')) {
+				// Set the game on
+				this._settings.set('paused', false);
 
-			// Get player
-			var player = this._players.getPlayer(this._settings.get('turn'));
+				// Get player
+				var player = this._players.getPlayer(this._settings.get('turn'));
 
-			if (player) {
-				// Notify information
-				Events.trigger('game:notify', 'game_player_resumed', player.toJSON());
+				if (player) {
+					// Notify information
+					Events.trigger('game:notify', 'game_player_resumed', player.toJSON());
+				}
+
+				// Trigger a player check
+				Events.trigger('game:check');
 			}
-
-			// Trigger a player check
-			Events.trigger('game:check');
 
 			return this;
 		};
 
 		App.pauseGame = function () {
-			// Set the game on
-			this._settings.set('paused', true);
+			if (!this._settings.get('paused')) {
+				// Set the game on
+				this._settings.set('paused', true);
 
-			// Get player
-			var player = this._players.getPlayer(this._settings.get('turn'));
+				// Get player
+				var player = this._players.getPlayer(this._settings.get('turn'));
 
-			if (player) {
-				// Notify information
-				Events.trigger('game:notify', 'game_player_paused', player.toJSON());
+				if (player) {
+					// Notify information
+					Events.trigger('game:notify', 'game_player_paused', player.toJSON());
+				}
 			}
 
 			return this;
@@ -215,6 +213,14 @@
 				// Notify information
 				window.alert('You are ' + player.get('name') + '.');
 			}
+
+			return this;
+		};
+
+		App.updateSettings = function (attributes) {
+			this._settings.set(attributes, {
+				validate: true
+			});
 
 			return this;
 		};

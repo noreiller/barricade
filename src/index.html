@@ -1,20 +1,43 @@
 <!DOCTYPE html>
 <html>
 	<head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Barricade</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+		<title>Barricade</title>
 		<link rel="stylesheet" type="text/css" href="css/styles.css" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 	</head>
 	<body>
-		<div id="container">
-			<div id="controls"></div>
-			<div id="turn"></div>
-			<div id="dice"></div>
-			<div id="board"></div>
-			<div id="notification"></div>
-			<div id="settings"></div>
-			<div id="user"></div>
-		</div>
+		<svg display="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="320" height="32" viewBox="0 0 320 32">
+			<defs>
+			<g id="icon-pass">
+				<path class="path1" d="M16 27v-10l-10 10v-22l10 10v-10l11 11z"></path>
+			</g>
+			<g id="icon-reset">
+				<path class="path1" d="M27.313 4.687c-2.895-2.896-6.895-4.687-11.313-4.687-6.859 0-12.709 4.316-14.984 10.381l3.746 1.405c1.706-4.548 6.094-7.786 11.238-7.786 3.314 0 6.313 1.344 8.485 3.515l-4.485 4.485h12v-12l-4.687 4.687zM16 28c-3.314 0-6.313-1.343-8.485-3.515l4.485-4.485h-12v12l4.687-4.687c2.895 2.896 6.894 4.687 11.313 4.687 6.859 0 12.709-4.316 14.984-10.381l-3.746-1.405c-1.706 4.548-6.094 7.786-11.238 7.786z"></path>
+			</g>
+			<g id="icon-minus">
+				<path class="path1" d="M0 13v6c0 0.552 0.448 1 1 1h30c0.552 0 1-0.448 1-1v-6c0-0.552-0.448-1-1-1h-30c-0.552 0-1 0.448-1 1z"></path>
+			</g>
+			<g id="icon-pause">
+				<path class="path1" d="M4 4h10v24h-10zM18 4h10v24h-10z"></path>
+			</g>
+			<g id="icon-resume">
+				<path class="path1" d="M6 4l20 12-20 12z"></path>
+			</g>
+			<g id="icon-plus">
+				<path class="path1" d="M31 12h-11v-11c0-0.552-0.448-1-1-1h-6c-0.552 0-1 0.448-1 1v11h-11c-0.552 0-1 0.448-1 1v6c0 0.552 0.448 1 1 1h11v11c0 0.552 0.448 1 1 1h6c0.552 0 1-0.448 1-1v-11h11c0.552 0 1-0.448 1-1v-6c0-0.552-0.448-1-1-1z"></path>
+			</g>
+			<g id="icon-settings">
+				<path class="path1" d="M14 4v-0.5c0-0.825-0.675-1.5-1.5-1.5h-5c-0.825 0-1.5 0.675-1.5 1.5v0.5h-6v4h6v0.5c0 0.825 0.675 1.5 1.5 1.5h5c0.825 0 1.5-0.675 1.5-1.5v-0.5h18v-4h-18zM8 8v-4h4v4h-4zM26 13.5c0-0.825-0.675-1.5-1.5-1.5h-5c-0.825 0-1.5 0.675-1.5 1.5v0.5h-18v4h18v0.5c0 0.825 0.675 1.5 1.5 1.5h5c0.825 0 1.5-0.675 1.5-1.5v-0.5h6v-4h-6v-0.5zM20 18v-4h4v4h-4zM14 23.5c0-0.825-0.675-1.5-1.5-1.5h-5c-0.825 0-1.5 0.675-1.5 1.5v0.5h-6v4h6v0.5c0 0.825 0.675 1.5 1.5 1.5h5c0.825 0 1.5-0.675 1.5-1.5v-0.5h18v-4h-18v-0.5zM8 28v-4h4v4h-4z"></path>
+			</g>
+			</defs>
+		</svg>
+		<div id="controls"></div>
+		<div id="turn"></div>
+		<div id="dice"></div>
+		<div id="board"></div>
+		<div id="notification"></div>
+		<div id="panel"></div>
 		<script data-main="js/config.js" src="../node_modules/requirejs/require.js"></script>
 	</body>
 </html>

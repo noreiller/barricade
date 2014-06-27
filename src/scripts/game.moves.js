@@ -306,7 +306,7 @@
 				}
 			}
 			catch (e) {
-				window.console.error(e);
+				Events.trigger('game:error', e);
 			}
 
 			return this;
