@@ -41,8 +41,8 @@
 						Events.trigger('game:move:save', from, to);
 					}
 				}
-				// There is a selected piece
-				else if (from) {
+				// There is a selected piece and the destination is not a home
+				else if (from && !to.isHome()) {
 					// The selected piece and the destination are from the same famiy
 					if (from.get('value') === to.get('value') && to.get('moveable')) {
 						// Toggle their selectability
