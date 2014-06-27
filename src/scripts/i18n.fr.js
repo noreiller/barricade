@@ -10,7 +10,7 @@ define([
 		, control_pass_turn: "Passer son tour"
 		, control_pause_game: "Mettre le jeu en pause"
 		, control_resume_game: "Remettre le jeu en marche"
-		, control_reset_game: "Redémarrer la partie"
+		, control_reset_game: "Redémarrer le jeu"
 		, control_user_settings: "Afficher les paramètres utilisateur"
 		, game_dice: '%name a lancé le dé et a obtenu %0.'
 		, game_player_captured_barricade: '%name a capturé une barricade.'
