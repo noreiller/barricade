@@ -3,6 +3,7 @@ define([
 	, 'backbone'
 	, 'tools'
 	, 'game.events'
+	, 'game.user'
 	, 'view.board'
 	, 'view.settings'
 	, 'view.controls'
@@ -11,7 +12,7 @@ define([
 	, 'view.dice'
 	, 'view.turn'
 	, 'view.user'
-], function (_, Backbone, Tools, Events, BoardView, SettingsView, ControlsView, NotificationView, WindowView, DiceView, TurnView, UserView) {
+], function (_, Backbone, Tools, Events, User, BoardView, SettingsView, ControlsView, NotificationView, WindowView, DiceView, TurnView, UserView) {
 	'use strict';
 
 	var UI = {};
@@ -37,8 +38,6 @@ define([
 		this._views.add(new BoardView({
 			collection: this._places
 			, el: '#board'
-			, rows: this._settings.get('rows')
-			, cols: this._settings.get('cols')
 		}), 'board');
 
 		this._views.add(new ControlsView({
@@ -61,11 +60,13 @@ define([
 
 	UI.updateRendering = function () {
 		if (!this._settings.get('noui')) {
+			User.storage.set({
+				mapRowCount: this._settings.get('rows')
+				, mapColCount: this._settings.get('cols')
+			});
+
 			try {
-				this._views.findByCustom('board').updateData({
-					rows: this._settings.get('rows')
-					, cols: this._settings.get('cols')
-				});
+				this._views.findByCustom('board').updateViewport();
 			}
 			catch (e) {}
 		}
@@ -75,6 +76,11 @@ define([
 
 	UI.resetRendering = function () {
 		if (!this._settings.get('noui')) {
+			User.storage.set({
+				mapRowCount: 0
+				, mapColCount: 0
+			});
+
 			try {
 				// reset views
 				this._views.findByCustom('board').reset();

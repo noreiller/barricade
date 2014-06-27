@@ -5,20 +5,19 @@ See https://en.wikipedia.org/wiki/Malefiz
 
 ## To do
 
+* Enhance the notification panel w/ player specific informations (color when specific to user) and colored icon (click/open to back to normal)
 * Get rid of this alert with the name (lazy me...)
 * Design the control panel
 * Align the board in the center of the page
-* Enhance the notification panel w/ player specific informations (color when specific to user) and colored icon (click/open to back to normal)
 * Create more fun maps and with more players
 * When a (real) player passes its tur, check that he is not lazy
-* Add some sounds: player turn, barricade captured, move error, etc.
 * Migrate the board UI from DOM to CANVAS
 * Create a zoomable board: + and - buttons (within controls panel?)
+* Add some sounds: player turn, barricade captured, move error, etc.
 * Save the current game/user to restore them later
 * Multiplayer
 * Scores storage (move counts / dice count / barricade captured / player captured)
-* règles illustrées dans un carousel
-* Avoid all view.data storage (view.board and view.place)
+* Rules with pictures
 
 
 ## Changelog

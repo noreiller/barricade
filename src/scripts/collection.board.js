@@ -9,17 +9,24 @@ define([
 	var Collection = Backbone.Collection.extend({
 		model: PlaceModel
 
+		, getRowCount: function () {
+			return this.length ? _.reduce(this.models, function (prev, current) {
+				return current.get('row') > prev.get('row') ? current : prev;
+			}).get('row') : 0;
+		}
+
+		, getColCount: function () {
+			return this.length ? _.reduce(this.models, function (prev, current) {
+				return current.get('col') > prev.get('col') ? current : prev;
+			}).get('col') : 0;
+		}
+
 		, getGrid: function () {
 			var grid = [];
 
 			if (this.length) {
-				var rows = _.reduce(this.models, function (prev, current) {
-					return current.get('row') > prev.get('row') ? current : prev;
-				}).get('row');
-
-				var cols = _.reduce(this.models, function (prev, current) {
-					return current.get('col') > prev.get('col') ? current : prev;
-				}).get('col');
+				var rows = this.getRowCount();
+				var cols = this.getColCount();
 
 				for (var row = 0; row <= rows; row++) {
 					grid.push([]);

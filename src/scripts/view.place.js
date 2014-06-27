@@ -21,7 +21,6 @@
 					'render'
 					, 'createPath'
 					, 'createPiece'
-					, 'updateData'
 					, 'updateViewport'
 					, 'selectPlace'
 					, 'updateMoveability'
@@ -33,7 +32,6 @@
 				if (options.parentNode) {
 					this.parentNode = options.parentNode;
 				}
-				this.updateData(options);
 
 				this.listenTo(this.model, 'change:moveable', this.updateMoveability);
 				this.listenTo(this.model, 'change:selected', this.updateSelectability);
@@ -66,21 +64,6 @@
 				return this;
 			}
 
-			, updateData: function (options) {
-				this.data = {
-					dimension: options.dimension || { width: 1, height: 1 }
-					, position: options.position || { left: 1, top: 1 }
-					, rows: options.rows
-					, cols: options.cols
-				};
-
-				if (!options.model) {
-					this.updateViewport(options);
-				}
-
-				return this;
-			}
-
 			, move: function (previousAttributes) {
 				var element = document.getElementById(previousAttributes.pieceId);
 
@@ -89,8 +72,8 @@
 					element.classList.remove('draggable');
 
 					$(element).animate({
-						left: (Math.floor(this.model.get('col') % this.data.cols) * this.data.dimension.width) + 'px'
-						, top: (Math.floor(this.model.get('row') % this.data.rows) * this.data.dimension.height) + 'px'
+						left: (Math.floor(this.model.get('col') % User.storage.get('mapColCount')) * this.getPlaceSize()) + 'px'
+						, top: (Math.floor(this.model.get('row') % User.storage.get('mapRowCount')) * this.getPlaceSize()) + 'px'
 					}, function () {
 						Events.trigger('game:move:rendered', previousAttributes.pieceId);
 					});
@@ -100,18 +83,18 @@
 			}
 
 			, updateViewport: function (options) {
-				this.el.style.width = this.data.dimension.width + 'px';
-				this.el.style.height = this.data.dimension.height + 'px';
+				this.el.style.width = this.getPlaceSize() + 'px';
+				this.el.style.height = this.getPlaceSize() + 'px';
 
-				this.el.style.left = (this.data.position.left * this.data.dimension.width) + 'px';
-				this.el.style.top = (this.data.position.top * this.data.dimension.height) + 'px';
+				this.el.style.left = (Math.floor(this.model.get('col') % User.storage.get('mapColCount')) * this.getPlaceSize()) + 'px';
+				this.el.style.top = (Math.floor(this.model.get('row') % User.storage.get('mapRowCount')) * this.getPlaceSize()) + 'px';
 
 				if (this.getPieceElement()) {
-					this.getPieceElement().style.width = this.data.dimension.width + 'px';
-					this.getPieceElement().style.height = this.data.dimension.height + 'px';
+					this.getPieceElement().style.width = this.getPlaceSize() + 'px';
+					this.getPieceElement().style.height = this.getPlaceSize() + 'px';
 
-					this.getPieceElement().style.left = (Math.floor(this.model.get('col') % this.data.cols) * this.data.dimension.width) + 'px';
-					this.getPieceElement().style.top = (Math.floor(this.model.get('row') % this.data.rows) * this.data.dimension.height) + 'px';
+					this.getPieceElement().style.left = (Math.floor(this.model.get('col') % User.storage.get('mapColCount')) * this.getPlaceSize()) + 'px';
+					this.getPieceElement().style.top = (Math.floor(this.model.get('row') % User.storage.get('mapRowCount')) * this.getPlaceSize()) + 'px';
 				}
 
 				return this;
@@ -172,11 +155,11 @@
 					element.style.color = this.model.get('color');
 				}
 
-				element.style.width = this.data.dimension.width + 'px';
-				element.style.height = this.data.dimension.height + 'px';
+				element.style.width = this.getPlaceSize() + 'px';
+				element.style.height = this.getPlaceSize() + 'px';
 
-				element.style.left = (this.data.position.left * this.data.dimension.width) + 'px';
-				element.style.top = (this.data.position.top * this.data.dimension.height) + 'px';
+				element.style.left = (Math.floor(this.model.get('col') % User.storage.get('mapColCount')) * this.getPlaceSize()) + 'px';
+				element.style.top = (Math.floor(this.model.get('row') % User.storage.get('mapRowCount')) * this.getPlaceSize()) + 'px';
 
 				this.parentNode.appendChild(element);
 
@@ -239,6 +222,20 @@
 
 			, getPieceElement: function () {
 				return document.getElementById(this.model.get('pieceId'));
+			}
+
+			, getPlaceSize: function () {
+				var placeSize = 1;
+
+				if (User.storage.get('mapRowCount') && User.storage.get('mapColCount')) {
+					placeSize = Math.min(
+						Math.floor(this.parentNode.offsetWidth / (User.storage.get('mapRowCount') + 2))
+						, Math.floor(this.parentNode.offsetHeight / (User.storage.get('mapColCount') + 2))
+					);
+
+				}
+
+				return placeSize;
 			}
 		});
 

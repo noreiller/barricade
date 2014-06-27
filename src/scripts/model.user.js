@@ -5,10 +5,12 @@ define([
 ], function (_, Backbone, Tools) {
 	'use strict';
 
+	/**
+	 * @see model.player
+	 */
 	var User = Backbone.Model.extend({
 		defaults: {
-			turn: -1
-			, languages: []
+			languages: []
 			, dict: {}
 		}
 	});
