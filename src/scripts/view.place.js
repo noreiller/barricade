@@ -229,8 +229,8 @@
 
 				if (User.storage.get('mapRowCount') && User.storage.get('mapColCount')) {
 					placeSize = Math.min(
-						Math.floor(this.parentNode.offsetWidth / (User.storage.get('mapRowCount') + 2))
-						, Math.floor(this.parentNode.offsetHeight / (User.storage.get('mapColCount') + 2))
+						Math.floor(this.parentNode.offsetWidth / (User.storage.get('mapColCount')))
+						, Math.floor(this.parentNode.offsetHeight / (User.storage.get('mapRowCount')))
 					);
 
 				}
