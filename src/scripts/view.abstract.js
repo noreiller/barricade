@@ -10,7 +10,7 @@
 				this.remove();
 				this.unbind();
 
-				if (this.onClose) {
+				if (typeof this.onClose === 'function') {
 					this.onClose.apply(this, arguments);
 				}
 
@@ -29,7 +29,7 @@
 				this.el.classList.remove('set');
 				this.el.classList.add('unset');
 
-				if (this.onHide) {
+				if (typeof this.onHide === 'function') {
 					this.onHide.apply(this, arguments);
 				}
 
@@ -40,7 +40,7 @@
 				this.el.classList.remove('unset');
 				this.el.classList.add('set');
 
-				if (this.onShow) {
+				if (typeof this.onShow === 'function') {
 					this.onShow.apply(this, arguments);
 				}
 
@@ -57,6 +57,10 @@
 
 				this.empty();
 				this.hide();
+
+				if (typeof this.onReset === 'function') {
+					this.onReset.apply(this, arguments);
+				}
 
 				return this;
 			}
