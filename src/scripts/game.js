@@ -147,12 +147,13 @@
 		};
 
 		App.resetGame = function () {
+			// Reset the UI
 			this.resetRendering();
 
-			// reset the settings
+			// Reset the settings
 			this._settings.reset();
 
-			// reset the players
+			// Reset the players
 			this._players.reset();
 
 			// Show the settings panel
@@ -249,6 +250,11 @@
 				player.set(attributes, {
 					validate: true
 				});
+
+				// Update pieces and homes
+				_.invoke(this._places.where({
+					value: player.get('value')
+				}), 'set', _.omit(player.toJSON(), 'piece'));
 
 				// Update player informations to the user
 				User.storage.set(player.toJSON());
