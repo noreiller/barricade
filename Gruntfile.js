@@ -7,8 +7,8 @@ module.exports = function (grunt) {
 		, jshint: {
 			all: [
 				'Gruntfile.js'
-				, 'src/js/**/*.js'
-				, '!src/js/polyfill.*'
+				, 'src/scripts/**/*.js'
+				, '!src/scripts/polyfill.*'
 			]
 			, options: {
 				laxbreak: true
