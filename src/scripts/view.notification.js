@@ -14,7 +14,7 @@
 				'click': 'toggle'
 			}
 			, initialize: function () {
-				_.bindAll(this, 'notify');
+				_.bindAll(this, 'notify', 'onReset');
 
 				this.listenTo(Events, 'game:notify', this.notify);
 
@@ -24,6 +24,12 @@
 			, toggle: function () {
 				this.el.classList.toggle('opened');
 				this.el.scrollTop = 0;
+			}
+
+			, onReset: function () {
+				if (this.el.classList.contains('opened')) {
+					this.toggle();
+				}
 			}
 
 			, notify: function () {

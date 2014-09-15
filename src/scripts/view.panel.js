@@ -54,8 +54,8 @@
 			}
 
 			, addViews: function (views) {
-				_.each(views, function (itemView, ind) {
-					var newView = new itemView();
+				_.each(views, function (ItemView, ind) {
+					var newView = new ItemView();
 					this.views.add(newView, ind);
 				}, this);
 			}
@@ -117,8 +117,8 @@
 							values[form[i].name] = form[i].value;
 						}
 					}
-					else if (form[i].type === 'checked') {
-						// if first value of this, simple check
+					else if (form[i].type === 'checkbox') {
+						// @todo if first value of this, simple check
 						// otherwise create an array if also checked
 					}
 					else {

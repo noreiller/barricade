@@ -27,6 +27,7 @@
     "easystarjs": "^0.1.7",
     "normalize.css": "^3.0.1",
     "jquery.requestAnimationFrame": "git://github.com/gnarf/jquery-requestAnimationFrame",
-    "text": "git://github.com/requirejs/text"
+    "text": "git://github.com/requirejs/text",
+    "easing-js": "git://github.com/danro/easing-js"
   }
 }

@@ -8,7 +8,7 @@ define([
 	Lorem.names = [
 		'Ali', 'Bernard', 'Chloé', 'Dan', 'Élodie', 'Filip', 'Grégoire', 'Henry', 'Irina', 'Johann'
 		,'Khaled' , 'Lola', 'M', 'Noemie', 'Octave', 'Pierre', 'Quentin', 'Robert', 'Sarah'
-		, 'Tristan', 'Ulysse', 'Véronique', 'Walter', 'Xavier', 'Yaël', 'Zoé'
+		, 'Tristan', 'Ulysse', 'Valérie', 'Walter', 'Xavier', 'Yaël', 'Zoé'
 	];
 
 	return Lorem;

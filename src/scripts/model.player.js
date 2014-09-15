@@ -9,21 +9,11 @@ define([
 		defaults: {
 			name: 'player'
 			, color: false
-			, background: false
-			, path: false
+			, path: 'home'
 			, piece: 'player'
 			, value: -1
 			, ai: false
 			, language: 'en'
-		}
-
-		, validate: function (attributes) {
-			if (attributes.color !== attributes.background) {
-				this.set({
-					color: attributes.color || attributes.background
-					, background: attributes.color || attributes.background
-				});
-			}
 		}
 	});
 

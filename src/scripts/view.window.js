@@ -18,6 +18,17 @@
 
 			, initialize: function (options) {
 				_.bindAll(this, 'resize');
+				this.initializeRequestAnimFrame();
+
+				return this;
+			}
+
+			, initializeRequestAnimFrame: function () {
+				window.requestAnimFrame = (function(callback) {
+					return window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || window.oRequestAnimationFrame || window.msRequestAnimationFrame || function (callback) {
+						window.setTimeout(callback, 1000 / 60);
+					};
+				})();
 
 				return this;
 			}

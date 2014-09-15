@@ -20,7 +20,7 @@ define([
 				[0,0,1,1,1,1,1,1,1,1,1,0,0],
 				[0,0,0,0,4,0,0,0,5,0,0,0,0],
 				[0,0,0,0,4,0,0,0,5,0,0,0,0],
-				[0,0,4,4,4,0,0,0,5,5,5,0,0],
+				[0,0,4,4,4,0,0,0,5,5,5,0,0]
 			]
 			, places: {
 				'0': {
@@ -30,20 +30,19 @@ define([
 				}
 				, '1': {
 					name: 'path'
-					, background: '#000000'
+					, color: '#000000'
 					, path: 'path'
 					, piece: false
 				}
 				, '2': {
 					name: 'barricade'
-					, background: '#ff0000'
 					, color: '#ffffff'
 					, path: 'barricade'
 					, piece: 'barricade'
 				}
 				, '3': {
 					name: 'goal'
-					, background: '#ff0000'
+					, color: '#ff0000'
 					, path: 'goal'
 					, piece: false
 				}
@@ -80,20 +79,19 @@ define([
 				}
 				, '1': {
 					name: 'path'
-					, background: '#000000'
+					, color: '#000000'
 					, path: 'path'
 					, piece: false
 				}
 				, '2': {
 					name: 'barricade'
-					, background: '#ff0000'
 					, color: '#ffffff'
 					, path: 'barricade'
 					, piece: 'barricade'
 				}
 				, '3': {
 					name: 'goal'
-					, background: '#ff0000'
+					, color: '#ff0000'
 					, path: 'goal'
 					, piece: false
 				}
@@ -130,20 +128,19 @@ define([
 				}
 				, '1': {
 					name: 'path'
-					, background: '#000000'
+					, color: '#000000'
 					, path: 'path'
 					, piece: false
 				}
 				, '2': {
 					name: 'barricade'
-					, background: '#ff0000'
 					, color: '#ffffff'
 					, path: 'barricade'
 					, piece: 'barricade'
 				}
 				, '3': {
 					name: 'goal'
-					, background: '#ff0000'
+					, color: '#ff0000'
 					, path: 'goal'
 					, piece: false
 				}

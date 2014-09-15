@@ -41,8 +41,8 @@
 						Events.trigger('game:move:save', from, to);
 					}
 				}
-				// There is a selected piece and the destination is not a home
-				else if (from && !to.isHome()) {
+				// There is a selected piece and the destination is moveable or not a home
+				else if (from && (to.get('moveable') || !to.isHome())) {
 					// The selected piece and the destination are from the same famiy
 					if (from.get('value') === to.get('value') && to.get('moveable')) {
 						// Toggle their selectability
@@ -69,11 +69,9 @@
 			}
 
 			var fromAttributes = from.toJSON();
-
 			var easystar = new EasyStar.js();
 
 			easystar.setGrid(this._places.getGrid());
-
 			easystar.setAcceptableTiles(this._settings.getWalkableTiles());
 
 			// Optional tile costs
@@ -181,6 +179,12 @@
 			try {
 				Events.trigger('game:move:success');
 
+				if (!from.get('selected')) {
+					from.set({
+						selected: true
+					});
+				}
+
 				// Save places attributes to an object to allow them to be modified
 				var fromAttributes = from.toJSON();
 				var toAttributes = to.toJSON();
@@ -216,14 +220,14 @@
 					// Register the moving pieces
 					moves.push(toAttributes.pieceId, fromAttributes.pieceId);
 
+					// Origin is moved
+					from.pieceMoved();
+
 					// Player goes back home
 					futurePlayerHome.mutatesTo(toAttributes);
 
 					// Destination becomes moving piece
 					to.mutatesTo(fromAttributes);
-
-					// Origin is moved
-					from.pieceMoved();
 
 					// Notify information
 					Events.trigger('game:notify', 'game_player_captured_player', player.toJSON());
@@ -257,14 +261,14 @@
 					}
 					// Otherwise
 					else {
-						// Barricade goes to player's home
-						futureBarricadeHome.mutatesTo(toAttributes);
+						// Origin is moved
+						from.pieceMoved();
 
 						// Destination becomes moving piece
 						to.mutatesTo(fromAttributes);
 
-						// Origin is moved
-						from.pieceMoved();
+						// Barricade goes to player's home
+						futureBarricadeHome.mutatesTo(toAttributes);
 
 						// Select the barricade right now
 						futureBarricadeHome.set({
@@ -287,11 +291,12 @@
 					// Register the moving piece
 					moves.push(fromAttributes.pieceId);
 
+					// Selection is moved
+					from.pieceMoved();
+
 					// Item becomes selection
 					to.mutatesTo(fromAttributes);
 
-					// Selection is moved
-					from.pieceMoved();
 
 					// Notify information
 					Events.trigger('game:notify', 'game_player_moved', player.toJSON());

@@ -124,8 +124,8 @@
 					this.el.classList.remove('home');
 				}
 
-				if (this.model.get('background') && this.model.isHome()) {
-					this.el.style.color = this.model.get('background');
+				if (this.model.get('color') && this.model.isHome()) {
+					this.el.style.color = this.model.get('color');
 				}
 				else {
 					this.el.style.color = '';
@@ -200,7 +200,7 @@
 				}
 
 				if (this.model.isHome() && this.model.get('value') === User.storage.get('turn')) {
-					this.el.style.color = User.storage.get('background');
+					this.el.style.color = User.storage.get('color');
 				}
 
 				return this;

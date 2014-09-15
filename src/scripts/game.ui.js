@@ -19,6 +19,13 @@ define([
 	UI.render = function () {
 		this._views = new Backbone.ChildViewContainer();
 
+		this._views.add(new WindowView(), 'window');
+
+		this._views.add(new BoardView({
+			collection: this._places
+			, id: 'board'
+		}), 'board');
+
 		this._views.add(new DiceView({
 			model: this._settings
 			, el: '#dice'
@@ -28,11 +35,6 @@ define([
 			model: this._settings
 			, el: '#turn'
 		}), 'turn');
-
-		this._views.add(new BoardView({
-			collection: this._places
-			, el: '#board'
-		}), 'board');
 
 		this._views.add(new ControlsView({
 			collection: this._controls
@@ -47,20 +49,18 @@ define([
 			el: '#panel'
 		}), 'panel');
 
-		this._views.add(new WindowView(), 'window');
-
 		return this;
 	};
 
 	UI.updateRendering = function () {
 		if (!this._settings.get('noui')) {
-			User.storage.set({
-				mapRowCount: this._settings.get('rows')
-				, mapColCount: this._settings.get('cols')
-			});
-
 			try {
-				this._views.findByCustom('board').updateViewport();
+				User.storage.set({
+					mapRowCount: this._settings.get('rows')
+					, mapColCount: this._settings.get('cols')
+				});
+
+				this._views.findByCustom('board').render();
 			}
 			catch (e) {
 				Events.trigger('game:error', e);
@@ -72,12 +72,12 @@ define([
 
 	UI.resetRendering = function () {
 		if (!this._settings.get('noui')) {
-			User.storage.set({
-				mapRowCount: 0
-				, mapColCount: 0
-			});
-
 			try {
+				User.storage.set({
+					mapRowCount: 0
+					, mapColCount: 0
+				});
+
 				// reset views
 				this._views.findByCustom('board').reset();
 				this._views.findByCustom('notification').reset();

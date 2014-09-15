@@ -212,7 +212,7 @@
 				Events.trigger('game:user', User.storage.toJSON());
 
 				// Notify information
-				window.alert('You are ' + player.get('name') + '.');
+				// window.alert('You are ' + player.get('name') + '.');
 			}
 
 			return this;
@@ -252,9 +252,12 @@
 				});
 
 				// Update pieces and homes
-				_.invoke(this._places.where({
+				var places = this._places.where({
 					value: player.get('value')
-				}), 'set', _.omit(player.toJSON(), 'piece'));
+				});
+
+				_.invoke(places, 'set', _.omit(player.toJSON(), 'piece'));
+				_.invoke(places, 'deepSet', attributes);
 
 				// Update player informations to the user
 				User.storage.set(player.toJSON());
@@ -331,6 +334,9 @@
 			if (!this._settings.get('paused')) {
 				// Get player
 				var player = this._players.getPlayer(this._settings.get('turn'));
+
+				// Force an update of the UI
+				this.updateRendering();
 
 				// If player is AI
 				if (player && player.get('ai')) {

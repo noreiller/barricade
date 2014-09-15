@@ -54,7 +54,7 @@
 
 		Events.on('game:error', function (error) {
 			window.console.error(error);
-		})
+		});
 
 		return Events;
 	});

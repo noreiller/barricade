@@ -64,6 +64,17 @@
 
 				return this;
 			}
+
+			, insertElement: function (insertBefore) {
+				if (insertBefore) {
+					document.body.insertBefore(this.el, document.body.firstChild);
+				}
+				else {
+					document.body.appendChild(this.el);
+				}
+
+				return this;
+			}
 		});
 
 		return View;

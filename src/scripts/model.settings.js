@@ -91,11 +91,6 @@ define([
 					}, this);
 				}, this);
 
-				// Register places
-				_.each(places, function (place) {
-					Events.trigger('game:place', place);
-				}, this);
-
 				// Random a player place for the current user
 				var currentPlayerIndex = _.sample(playersIndexes);
 				attributes.places[currentPlayerIndex].ai = false;
@@ -108,12 +103,34 @@ define([
 					// Send back the color to the proposals
 					Tools.lorem.colors.push(attributes.places[currentPlayerIndex].color);
 
-					// Get some attributes
+					// Update attributes of the player
 					attributes.places[currentPlayerIndex].name = User.storage.get('name');
 					attributes.places[currentPlayerIndex].color = User.storage.get('color');
-					attributes.places[currentPlayerIndex].background = User.storage.get('background');
 					attributes.places[currentPlayerIndex].language = User.storage.get('language');
+
+					// Update attributes of the places
+					_.each(_.filter(places, function (item) {
+						return item.value === currentPlayerIndex;
+					}), function (item) {
+						item.name = User.storage.get('name');
+						item.color = User.storage.get('color');
+						item.language = User.storage.get('language');
+					});
 				}
+
+				// Update model
+				this.set({
+					mapName: attributes.mapName
+					, playersIndexes: playersIndexes
+					, places: attributes.places
+					, rows: attributes.map.length
+					, cols: attributes.map[0].length
+				});
+
+				// Register places
+				_.each(places, function (place) {
+					Events.trigger('game:place', place);
+				}, this);
 
 				// Register players
 				_.each(playersIndexes, function (playerIndex) {
@@ -123,14 +140,7 @@ define([
 				// Register the attribution of the current player turn
 				Events.trigger('game:player:current', currentPlayerIndex);
 
-				this.set({
-					mapName: attributes.mapName
-					, playersIndexes: playersIndexes
-					, places: attributes.places
-					, rows: attributes.map.length
-					, cols: attributes.map[0].length
-				});
-
+				// Notify settings changes
 				Events.trigger('game:settings');
 			}
 		}
@@ -152,28 +162,18 @@ define([
 			}
 
 			// When no color at all is provided
-			if (!attributes.color && !attributes.background) {
+			if (!attributes.color) {
 				// Create one from the samples
 				var hue = _.sample(Tools.lorem.colors);
 				var color = Tools.color.random({
 					hue: hue
 				});
 
-				attributes.background = attributes.color = color;
+				attributes.color = color;
 
 				Tools.lorem.colors = _.filter(Tools.lorem.colors, function (value) {
 					return value !== hue;
 				});
-			}
-			// When only the background color is provided
-			else if (!attributes.color || attributes.background) {
-				// Use it for the foreground
-				attributes.color = attributes.background;
-			}
-			// When only the foreground color is provided
-			else if (attributes.color || !attributes.background) {
-				// Use it for the background
-				attributes.background = attributes.color;
 			}
 
 			return attributes;

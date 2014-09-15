@@ -37,14 +37,14 @@
 				if (playerInfos) {
 					this.empty();
 
-					var rgb = Tools.color.hexToRgb(playerInfos.background);
+					var rgb = Tools.color.hexToRgb(playerInfos.color);
 
 					this.empty(this.el);
 
 					var el = document.createElement('div');
 					el.classList.add('color');
 
-					el.style.backgroundColor = playerInfos.background;
+					el.style.backgroundColor = playerInfos.color;
 
 					this.el.appendChild(el);
 					this.el.appendChild(document.createTextNode(playerInfos.name));

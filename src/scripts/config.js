@@ -9,6 +9,7 @@ require.config({
 		, 'randomcolor': '../../node_modules/randomcolor/randomColor'
 		, 'easystar': '../../node_modules/easystarjs/bin/easystar-0.1.7'
 		, 'text': '../../node_modules/text/text'
+		, 'easing-js': '../../node_modules/easing-js/easing'
 		// THREE: '../../bower_components/threejs/build/three'
 		// , OrbitControls: '../../bower_components/threejs/examples/js/controls/OrbitControls'
 	}

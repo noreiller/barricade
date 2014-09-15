@@ -16,11 +16,15 @@ define([
 	 */
 	Tools.getI18n = function () {
 		var dict = User.storage.get('dict');
-		var s = dict[arguments[0]] || arguments[0];
+		var args = arguments;
+		var s = args[0];
 
-		arguments[0] = s;
+		if (dict[s]) {
+			s = dict[s];
+			args[0] = s;
+		}
 
-		s = Tools.printf.apply(Tools, arguments);
+		s = Tools.printf.apply(Tools, args);
 
 		return s;
 	};
