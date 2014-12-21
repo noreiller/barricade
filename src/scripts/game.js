@@ -210,9 +210,6 @@
 
 				// Notify changes
 				Events.trigger('game:user', User.storage.toJSON());
-
-				// Notify information
-				// window.alert('You are ' + player.get('name') + '.');
 			}
 
 			return this;

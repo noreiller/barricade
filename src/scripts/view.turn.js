@@ -5,12 +5,17 @@
 		, 'backbone'
 		, 'tools'
 		, 'game.events'
+		, 'game.user'
 		, 'view.abstract'
-	], function (_, Backbone, Tools, Events, AbstractView) {
+	], function (_, Backbone, Tools, Events, User, AbstractView) {
 		'use strict';
 
 		var View = AbstractView.extend({
-			initialize: function (options) {
+			events: {
+				'click': 'clickListener'
+			}
+
+			, initialize: function (options) {
 				_.bindAll(this, 'render', 'check');
 
 				this.listenTo(this.model, 'change:turn', this.check);
@@ -34,7 +39,7 @@
 			}
 
 			, render: function (playerInfos) {
-				if (playerInfos) {
+				if (User.storage.get('turn') === this.model.get('turn') && playerInfos) {
 					this.empty();
 
 					var rgb = Tools.color.hexToRgb(playerInfos.color);
@@ -51,6 +56,12 @@
 				}
 
 				this.check();
+
+				return this;
+			}
+
+			, clickListener: function () {
+				Events.trigger('game:panel:user');
 
 				return this;
 			}

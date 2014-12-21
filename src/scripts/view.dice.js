@@ -11,7 +11,7 @@
 
 		var View = AbstractView.extend({
 			initialize: function (options) {
-				_.bindAll(this, 'render');
+				_.bindAll(this, 'render', 'check');
 
 				this.listenTo(this.model, 'change:dice', this.render);
 
@@ -20,26 +20,32 @@
 				return this;
 			}
 
-			, render: function () {
-				this.empty();
-
-				this.el.appendChild(document.createTextNode(this.model.get('dice')));
-
+			, check: function () {
 				if (
 					this.model.get('dice') < this.model.get('diceMin')
 					|| this.model.get('dice') > this.model.get('diceMax')
+					|| User.storage.get('turn') !== this.model.get('turn')
 				) {
 					this.hide();
 				}
 				else {
 					this.show();
-
-					this.el.classList.remove('in');
-
-					if (User.storage.get('turn') === this.model.get('turn')) {
-						this.el.classList.add('in');
-					}
 				}
+
+				return this;
+			}
+
+			, render: function () {
+				this.empty();
+				this.el.classList.remove('in');
+
+				if (User.storage.get('turn') === this.model.get('turn')) {
+					this.el.appendChild(document.createTextNode(this.model.get('dice')));
+
+					this.el.classList.add('in');
+				}
+
+				this.check();
 
 				return this;
 			}

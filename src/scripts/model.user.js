@@ -12,6 +12,7 @@ define([
 		defaults: {
 			languages: []
 			, dict: {}
+			, zoom: 1
 		}
 	});
 

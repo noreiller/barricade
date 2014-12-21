@@ -5,7 +5,6 @@ See https://en.wikipedia.org/wiki/Malefiz
 
 ## To do
 
-* Set the dice info current user only
 * Add the elements to the document within the view
 * Remove views from board UI when models are destroyed
 * Load UI on the fly, not as dependency VS useful when packaging
@@ -26,6 +25,8 @@ See https://en.wikipedia.org/wiki/Malefiz
 
 ### 0.5alpha
 
+* Set the turn and dice infos current user only
+* Made the notifications talking to the current user
 * Color update for player when game restarts
 * Migrate the board UI from DOM to CANVAS
 * Align the board in the center of the page

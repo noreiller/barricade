@@ -13,15 +13,25 @@ define([
 		, control_reset_game: "Reset the game"
 		, control_user_settings: "Show user settings"
 		, game_dice: '%name rolled the dice and got %0.'
+		, game_dice_self: 'You rolled the dice and got %0.'
 		, game_player_captured_barricade: '%name captured a barricade.'
+		, game_player_captured_barricade_self: 'You captured a barricade.'
 		, game_player_captured_player: '%name captured an opponent.'
+		, game_player_captured_player_self: 'You captured an opponent.'
 		, game_player_joins: "%name joined the game."
+		, game_player_joins_self: "You joined the game."
 		, game_player_moved: "%name played."
+		, game_player_moved_self: "You played."
 		, game_player_passes: "%name passed its turn."
+		, game_player_passes_self: "You passed its turn."
 		, game_player_paused: '%name set the game on pause.'
+		, game_player_paused_self: 'You set the game on pause.'
 		, game_player_resumed: '%name resumed the game.'
-		, game_player_turn: "The turn passed to %name."
+		, game_player_resumed_self: 'You resumed the game.'
+		, game_player_turn: "It's the turn of %name."
+		, game_player_turn_self: "It's your turn."
 		, game_player_wins: "%name won the game."
+		, game_player_wins_self: "You won the game."
 		, pause_title: "Pause"
 		, rules: "Rules of the game"
 		, rules_link: "https://en.wikipedia.org/wiki/Malefiz#Rules"

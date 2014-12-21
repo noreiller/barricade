@@ -6,7 +6,8 @@
 		, 'tools'
 		, 'game.events'
 		, 'view.abstract'
-	], function (_, Backbone, Tools, Events, AbstractView) {
+		, 'game.user'
+	], function (_, Backbone, Tools, Events, AbstractView, User) {
 		'use strict';
 
 		var View = AbstractView.extend({
@@ -32,12 +33,23 @@
 				}
 			}
 
-			, notify: function () {
+			, notify: function (message, playerInfos) {
+				var args = arguments;
+				if (playerInfos.value === User.storage.get('turn')) {
+					args[0] += '_self';
+				}
+
 				this.show();
 
-				var element = document.createElement('div');
+				var bullet = document.createElement('div');
+				bullet.classList.add('bullet');
+				bullet.style.color = playerInfos.color;
+				bullet.style.backgroundColor = playerInfos.color;
 
+				var element = document.createElement('div');
 				element.classList.add('message');
+
+				element.appendChild(bullet);
 				element.appendChild(document.createTextNode(
 					Tools.getI18n.apply(Tools, arguments)
 				));

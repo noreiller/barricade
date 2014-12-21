@@ -13,15 +13,25 @@ define([
 		, control_reset_game: "Redémarrer le jeu"
 		, control_user_settings: "Afficher les paramètres utilisateur"
 		, game_dice: '%name a lancé le dé et a obtenu %0.'
+		, game_dice_self: 'Vous avez lancé le dé et avez obtenu %0.'
 		, game_player_captured_barricade: '%name a capturé une barricade.'
+		, game_player_captured_barricade_self: 'Vous avez capturé une barricade.'
 		, game_player_captured_player: '%name a capturé un adversaire.'
+		, game_player_captured_player_self: 'Vous avez capturé un adversaire.'
 		, game_player_joins: "%name a rejoint la partie."
+		, game_player_joins_self: "Vous avez rejoint la partie."
 		, game_player_moved: "%name a joué."
+		, game_player_moved_self: "Vous avez joué."
 		, game_player_passes: '%name a passé son tour.'
+		, game_player_passes_self: 'Vous avez passé votre tour.'
 		, game_player_paused: '%name a mis le jeu en pause.'
+		, game_player_paused_self: 'Vous avez mis le jeu en pause.'
 		, game_player_resumed: '%name a remis le jeu en marche.'
-		, game_player_turn: "Le tour est passé à %name."
+		, game_player_resumed_self: 'Vous avez remis le jeu en marche.'
+		, game_player_turn: "C'est le tour de %name."
+		, game_player_turn_self: "C'est votre tour."
 		, game_player_wins: "%name a gagné la partie."
+		, game_player_wins_self: "Vous avez gagné la partie."
 		, pause_title: "Pause"
 		, rules: "Règles du jeu"
 		, rules_link: "https://fr.wikipedia.org/wiki/Barricade_%28jeu%29#D.C3.A9roulement"

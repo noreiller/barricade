@@ -23,6 +23,7 @@
 
 			, events: {
 				'click': 'clickListener'
+				// , 'mousedown': 'mousedownListener'
 			}
 
 			, initialize: function (options) {
@@ -126,8 +127,8 @@
 
 				if (User.storage.get('mapRowCount') && User.storage.get('mapColCount')) {
 					this.tileSize = Math.min(
-						Math.floor((this.el.offsetWidth - this.offsets.left - this.offsets.right) / User.storage.get('mapColCount'))
-						, Math.floor((this.el.offsetHeight - this.offsets.top - this.offsets.bottom) / User.storage.get('mapRowCount'))
+						Math.floor((this.el.offsetWidth - this.offsets.left - this.offsets.right) / User.storage.get('mapColCount') * User.storage.get('zoom'))
+						, Math.floor((this.el.offsetHeight - this.offsets.top - this.offsets.bottom) / User.storage.get('mapRowCount') * User.storage.get('zoom'))
 					);
 
 					this.offsetLeft = Math.floor((this.el.offsetWidth - this.tileSize * User.storage.get('mapColCount')) / 2);
@@ -141,6 +142,18 @@
 
 				return this;
 			}
+
+			// , mousedownListener: function (event) {
+			// 	var x = event.clientX - this.el.offsetLeft - this.offsetLeft;
+			// 	var y = event.clientY - this.el.offsetTop - this.offsets.top;
+
+			// 	this.tileClick = {
+			// 		row: Math.floor(y / this.tileSize)
+			// 		, col: Math.floor(x / this.tileSize)
+			// 	};
+
+			// 	return this;
+			// }
 
 			, clickListener: function (event) {
 				var x = event.clientX - this.el.offsetLeft - this.offsetLeft;
