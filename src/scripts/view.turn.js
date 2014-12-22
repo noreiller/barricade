@@ -11,7 +11,11 @@
 		'use strict';
 
 		var View = AbstractView.extend({
-			events: {
+			tagName: 'button'
+
+			, className: 'turn-component control-component'
+
+			, events: {
 				'click': 'clickListener'
 			}
 
@@ -22,6 +26,7 @@
 				this.listenTo(Events, 'game:turn', this.render);
 				this.listenTo(Events, 'game:user', this.render);
 
+				this.insertElement();
 				this.render();
 
 				return this;
@@ -46,13 +51,17 @@
 
 					this.empty(this.el);
 
-					var el = document.createElement('div');
-					el.classList.add('color');
+					var icon = document.createElement('span');
+					icon.classList.add('icon');
+					icon.classList.add('icon-color');
+					icon.style.backgroundColor = playerInfos.color;
 
-					el.style.backgroundColor = playerInfos.color;
+					var name = document.createElement('span');
+					name.classList.add('label');
+					name.appendChild(document.createTextNode(playerInfos.name));
 
-					this.el.appendChild(el);
-					this.el.appendChild(document.createTextNode(playerInfos.name));
+					this.el.appendChild(icon);
+					this.el.appendChild(name);
 				}
 
 				this.check();

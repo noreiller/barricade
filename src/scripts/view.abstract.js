@@ -66,6 +66,8 @@
 			}
 
 			, insertElement: function (insertBefore) {
+				this._ensureElement();
+
 				if (insertBefore) {
 					document.body.insertBefore(this.el, document.body.firstChild);
 				}

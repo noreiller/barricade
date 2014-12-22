@@ -7,11 +7,13 @@ define([
 		language: "en"
 		, language_name: "English"
 		, barricade: "barricade"
+		, copyright: "Icons IcoMoon.io"
+		, control_menu: "Menu"
 		, control_pass_turn: "Pass its turn"
 		, control_pause_game: "Set the game on pause"
 		, control_resume_game: "Resume the game"
 		, control_reset_game: "Reset the game"
-		, control_user_settings: "Show user settings"
+		, control_user_settings: "Edit my profile"
 		, game_dice: '%name rolled the dice and got %0.'
 		, game_dice_self: 'You rolled the dice and got %0.'
 		, game_player_captured_barricade: '%name captured a barricade.'
@@ -27,6 +29,8 @@ define([
 		, game_player_paused: '%name set the game on pause.'
 		, game_player_paused_self: 'You set the game on pause.'
 		, game_player_resumed: '%name resumed the game.'
+		, game_player_settings: '%name changed its profile.'
+		, game_player_settings_self: 'You changed your profile.'
 		, game_player_resumed_self: 'You resumed the game.'
 		, game_player_turn: "It's the turn of %name."
 		, game_player_turn_self: "It's your turn."
@@ -46,7 +50,7 @@ define([
 		, settings_mapName_4_legend: "(mode big battle!)"
 		, settings_name: "Name"
 		, settings_reset: "Cancel"
-		, settings_submit: "Go!"
+		, settings_submit: "Play!"
 		, settings_title: "Choose your settings"
 		, user_settings_title: "User settings"
 		, user_settings_submit: "Ok"

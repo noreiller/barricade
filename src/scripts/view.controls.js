@@ -11,7 +11,9 @@
 		'use strict';
 
 		var View = AbstractView.extend({
-			initialize: function (options) {
+			className: 'controls-component'
+
+			, initialize: function (options) {
 				_.bindAll(this, 'render', 'renderItem');
 
 				this.views = new Backbone.ChildViewContainer();
@@ -19,6 +21,7 @@
 				this.listenTo(Events, 'game:pause', this.hide);
 				this.listenTo(Events, 'game:resume', this.show);
 
+				this.insertElement();
 				this.render();
 
 				return this;

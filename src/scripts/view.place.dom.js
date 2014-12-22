@@ -12,7 +12,7 @@
 		'use strict';
 
 		var View = AbstractView.extend({
-			'events': {
+			events: {
 				'click': 'selectPlace'
 			}
 

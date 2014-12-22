@@ -11,7 +11,7 @@
 	right: 0;
 	text-align: center;
 	top: 0;
-	z-index: 3;
+	z-index: @zindex-overlay;
 
 	&.unset {
 		display: none;
@@ -43,16 +43,16 @@
 		._rem-px(font-size, @font-size-l);
 	}
 
-	.rules,
+	.mentions,
 	.version {
-		._rem-px(font-size, @font-size-s);
+		._rem-px(font-size, @font-size-xs);
 		bottom: 0;
 		padding: .5em 1em;
 		position: absolute;
 		font-style: italic;
 	}
 
-	.rules {
+	.mentions {
 		left: 0;
 	}
 
@@ -62,12 +62,17 @@
 
 	.controls {
 		list-style-type: none;
-		margin: 0;
+		margin: 0 auto;
+		max-width: 50%;
 		padding: 0;
 
 		li {
-			display: inline-block;
-			padding: 1em .5em;
+			// display: inline-block;
+			padding: 1em 0;
+		}
+
+		.control-component {
+			width: 100%;
 		}
 	}
 }

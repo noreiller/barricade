@@ -7,11 +7,13 @@ define([
 		language: "fr"
 		, language_name: "Français"
 		, barricade: "barricade"
+		, copyright: "Icones IcoMoon.io"
+		, control_menu: "Menu"
 		, control_pass_turn: "Passer son tour"
 		, control_pause_game: "Mettre le jeu en pause"
-		, control_resume_game: "Remettre le jeu en marche"
+		, control_resume_game: "Revenir au jeu"
 		, control_reset_game: "Redémarrer le jeu"
-		, control_user_settings: "Afficher les paramètres utilisateur"
+		, control_user_settings: "Modifier mon profil"
 		, game_dice: '%name a lancé le dé et a obtenu %0.'
 		, game_dice_self: 'Vous avez lancé le dé et avez obtenu %0.'
 		, game_player_captured_barricade: '%name a capturé une barricade.'
@@ -28,6 +30,8 @@ define([
 		, game_player_paused_self: 'Vous avez mis le jeu en pause.'
 		, game_player_resumed: '%name a remis le jeu en marche.'
 		, game_player_resumed_self: 'Vous avez remis le jeu en marche.'
+		, game_player_settings: '%name a modifié son profil.'
+		, game_player_settings_self: 'Vous avez modifié votre profil.'
 		, game_player_turn: "C'est le tour de %name."
 		, game_player_turn_self: "C'est votre tour."
 		, game_player_wins: "%name a gagné la partie."
@@ -46,7 +50,7 @@ define([
 		, settings_mapName_4_legend: "(mode grande bataille !)"
 		, settings_name: "Nom"
 		, settings_reset: "Annuler"
-		, settings_submit: "C'est parti!"
+		, settings_submit: "Jouer !"
 		, settings_title: "Choisissez vos réglages"
 		, user_settings_title: "Paramètres utilisateur"
 		, user_settings_submit: "Ok"

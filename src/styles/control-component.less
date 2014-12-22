@@ -1,0 +1,30 @@
+.control-component {
+	background-color: @color-dark;
+	border: 1px solid @color-light;
+	border-radius: .25em;
+	color: @color-light;
+	padding: .5em;
+
+	&:hover {
+		background: @color-light;
+		color: @color-dark;
+		border-color: @color-dark;
+	}
+
+	& > .icon,
+	& > .label {
+		display: inline-block;
+	}
+
+	& > .icon {
+		height: 70%;
+		width: 70%;
+		._rem-px(height, 1.75);
+		._rem-px(width, 1.75);
+		vertical-align: bottom;
+	}
+
+	& > .icon + .label {
+		margin-left: 0.5em;
+	}
+}

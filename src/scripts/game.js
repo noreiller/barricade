@@ -31,15 +31,13 @@
 			this._places = new BoardCollection();
 			this._settings = new SettingsModel();
 			this._controls = new ControlsCollection([{
-				name: 'pause'
+				name: 'menu'
+				, symbol: 'list'
 				, event: 'game:pause'
-				, label: 'control_pause_game'
-			}, {
-				name: 'resume'
-				, event: 'game:resume'
-				, label: 'control_resume_game'
+				, label: 'control_menu'
 			}, {
 				name: 'pass'
+				, symbol: 'forward'
 				, event: 'game:pass'
 				, label: 'control_pass_turn'
 			}]);

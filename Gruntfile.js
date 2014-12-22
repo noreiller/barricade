@@ -26,7 +26,7 @@ module.exports = function (grunt) {
 				, files: {
 					"dist/css/styles.css": [
 						"node_modules/normalize.css/normalize.css"
-						, "src/styles/main.less"
+						, "src/styles/index.less"
 					]
 				}
 			}

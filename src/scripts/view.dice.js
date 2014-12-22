@@ -10,11 +10,14 @@
 		'use strict';
 
 		var View = AbstractView.extend({
-			initialize: function (options) {
+			className: 'dice-component'
+
+			, initialize: function (options) {
 				_.bindAll(this, 'render', 'check');
 
 				this.listenTo(this.model, 'change:dice', this.render);
 
+				this.insertElement();
 				this.render();
 
 				return this;

@@ -12,11 +12,13 @@
 		'use strict';
 
 		var View = AbstractView.extend({
-			tagName: 'canvas'
+			className: 'board-component'
+
+			, tagName: 'canvas'
 
 			, offsets: {
-				top: 60
-				, bottom: 60
+				top: 100
+				, bottom: 50
 				, left: 10
 				, right: 10
 			}

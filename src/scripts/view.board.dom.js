@@ -12,7 +12,9 @@
 		'use strict';
 
 		var View = AbstractView.extend({
-			initialize: function (options) {
+			className: 'board-component'
+
+			, initialize: function (options) {
 				_.bindAll(this
 					, 'render'
 					, 'renderItem'

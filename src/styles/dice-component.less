@@ -1,12 +1,22 @@
-#dice {
-	._control();
-	opacity: 0;
+.dice-component {
+	._set-unset();
+	._rem-px(height, 1.75);
+	._rem-px(width, 1.75);
+	._rem-px(line-height, 1.75);
+	background-color: #eee;
+	border-radius: .5em;
+	border: 1px solid #eee;
+	left: 1em;
+	padding: .5em;
+	position: absolute;
+	text-align: center;
+	top: 1em;
 
 	&:before,
 	&:after {
 		content: '';
 		background-color: #666;
-		border-radius: .25em;
+		border-radius: 50%;
 		height: .25em;
 		position: absolute;
 		width: .25em;
@@ -20,18 +30,10 @@
 		left: .25em;
 	}
 
-	&.set {
-		opacity: 1;
-	}
-
 	&.in {
 		-webkit-animation: shake .5s 0s;
 		-moz-animation: shake .5s 0s;
 		-o-animation: shake .5s 0s;
 		animation: shake .5s 0s;
-	}
-
-	&.unset {
-		opacity: 0;
 	}
 }

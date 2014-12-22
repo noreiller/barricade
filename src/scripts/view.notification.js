@@ -11,13 +11,18 @@
 		'use strict';
 
 		var View = AbstractView.extend({
-			events: {
+			className: 'notification-component'
+
+			, events: {
 				'click': 'toggle'
 			}
+
 			, initialize: function () {
 				_.bindAll(this, 'notify', 'onReset');
 
 				this.listenTo(Events, 'game:notify', this.notify);
+
+				this.insertElement();
 
 				return this;
 			}

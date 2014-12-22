@@ -30,8 +30,11 @@
 		</select>
 	</fieldset>
 	<fieldset class="actions">
-		<button type="submit"><%= i18n.settings_submit %></button>
+		<button class="control-component" type="submit">
+			<svg class="icon icon-play"><use xlink:href="#icon-play"></use></svg>
+			<span class="label"><%= i18n.settings_submit %></span>
+		</button>
 	</fieldset>
 </form>
-<span class="rules"><a href="<%= i18n.rules_link %>" target="_blank"><%= i18n.rules %></a></span>
+<span class="mentions"><a href="<%= i18n.rules_link %>" target="_blank"><%= i18n.rules %></a> - <%= i18n.copyright %></span>
 <span class="version"><%= i18n.version %></span>

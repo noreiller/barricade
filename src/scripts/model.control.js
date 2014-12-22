@@ -10,6 +10,7 @@ define([
 		defaults: {
 			name: 'control'
 			, label: 'control'
+			, symbol: null
 			, event: false
 		}
 	});

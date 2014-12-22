@@ -12,7 +12,7 @@
 
 		var View = AbstractView.extend({
 			tagName: 'button'
-			, className: 'control'
+			, className: 'control-component'
 
 			, template: _.template(controlTpl)
 
@@ -52,20 +52,20 @@
 			}
 
 			, pause: function () {
-				if (['resume', 'pass'].indexOf(this.model.get('name')) !== -1) {
-					this.show();
+				if (['pause'].indexOf(this.model.get('name')) !== -1) {
+					this.hide();
 				}
 				else {
-					this.hide();
+					this.show();
 				}
 			}
 
 			, resume: function () {
-				if (['pause', 'pass'].indexOf(this.model.get('name')) !== -1) {
-					this.show();
+				if (['resume'].indexOf(this.model.get('name')) !== -1) {
+					this.hide();
 				}
 				else {
-					this.hide();
+					this.show();
 				}
 			}
 		});

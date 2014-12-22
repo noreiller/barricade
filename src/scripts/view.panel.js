@@ -14,11 +14,13 @@
 		'use strict';
 
 		var View = AbstractView.extend({
-			'events': {
+			className: 'panel-component'
+
+			, events: {
 				'submit form': 'formSubmissionListener'
 				, 'click form [type=reset]': 'formResetListener'
 				, 'change form [name=language]': 'languageChangeListener'
-				, 'click button.control': 'controlClickListener'
+				, 'click button.control-component': 'controlClickListener'
 			}
 
 			, initialize: function (options) {
@@ -48,6 +50,7 @@
 				this.listenTo(Events, 'game:panel:user', this.openUser);
 				this.listenTo(Events, 'game:resume', this.hide);
 
+				this.insertElement();
 				this.hide();
 
 				return this;
