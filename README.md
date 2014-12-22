@@ -5,7 +5,6 @@ See https://en.wikipedia.org/wiki/Malefiz
 
 ## To do
 
-* Add a winner/loser panel
 * Localstorage with curent game
 * Remove views from board UI when models are destroyed
 * Load UI on the fly, not as dependency VS useful when packaging
@@ -21,8 +20,9 @@ See https://en.wikipedia.org/wiki/Malefiz
 
 ## Changelog
 
-### 0.5alpha
+### 0.5
 
+* Add a winner/loser panel
 * More comprehensive UI
 * Add the elements to the document within the view
 * Set the turn and dice infos current user only
