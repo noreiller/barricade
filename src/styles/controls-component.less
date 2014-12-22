@@ -1,0 +1,23 @@
+.controls-component {
+	._set-unset();
+	// height: 1em;
+	position: absolute;
+	top: 1em;
+	right: 1em;
+	max-width: 50%;
+	z-index: @zindex-clickable;
+
+	.control {
+		margin-left: 1em;
+		// ._rem-px(width, 2.5);
+		._rem-px(height, 2.5);
+
+		&.unset {
+			display: none;
+		}
+
+		&:first-child {
+			margin-left: 0;
+		}
+	}
+}

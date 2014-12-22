@@ -1,7 +1,8 @@
 define([
 	'underscore'
 	, 'backbone'
-	, 'game'
+	, 'game/game'
+	// DEPS
 	, 'jquery.requestAnimationFrame'
 ], function (_, Backbone, Game) {
 	'use strict';

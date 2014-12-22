@@ -7,8 +7,8 @@ module.exports = function (grunt) {
 		, jshint: {
 			all: [
 				'Gruntfile.js'
-				, 'src/js/**/*.js'
-				, '!src/js/polyfill.*'
+				, 'src/scripts/**/*.js'
+				, '!src/scripts/polyfill.*'
 			]
 			, options: {
 				laxbreak: true
@@ -26,9 +26,20 @@ module.exports = function (grunt) {
 				, files: {
 					"dist/css/styles.css": [
 						"node_modules/normalize.css/normalize.css"
-						, "src/styles/main.less"
+						, "src/styles/index.less"
 					]
 				}
+			}
+		}
+
+		, autoprefixer: {
+			dev: {
+				expand: true
+				, src: 'dist/css/styles.css'
+			}
+			, prod: {
+				expand: false
+				, src: 'dist/css/styles.css'
 			}
 		}
 
@@ -75,15 +86,15 @@ module.exports = function (grunt) {
 		, requirejs: {
 			app: {
 				options: {
-				    baseUrl : "src/scripts"
+					baseUrl : "src/scripts"
 					, mainConfigFile: "src/scripts/config.js"
 					, out: "dist/js/app.js"
-				    , name: "app"
-				    , optimizeCss: "none"
-				    , preserveLicenseComments : true
-				    , fileExclusionRegExp: /^\./
-				    , optimize: 'uglify2'
-				    , useStrict: true
+					, name: "app"
+					, optimizeCss: "none"
+					, preserveLicenseComments : true
+					, fileExclusionRegExp: /^\./
+					, optimize: 'uglify2'
+					, useStrict: true
 				}
 			}
 		}
@@ -110,7 +121,7 @@ module.exports = function (grunt) {
 				files: [
 					"src/styles/*.less"
 				]
-				, tasks: ['less']
+				, tasks: ['less', 'autoprefixer:dev']
 			}
 			, medias: {
 				files: [
@@ -127,6 +138,7 @@ module.exports = function (grunt) {
 		}
 	});
 
+	grunt.loadNpmTasks('grunt-autoprefixer');
 	grunt.loadNpmTasks('grunt-contrib-clean');
 	grunt.loadNpmTasks('grunt-contrib-copy');
 	grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -141,8 +153,8 @@ module.exports = function (grunt) {
 	grunt.registerTask('copy:dev', ['copy:templates', 'copy:medias', 'copy:scripts']);
 	grunt.registerTask('copy:prod', ['copy:templates', 'copy:medias', 'copy:requirejs']);
 
-	grunt.registerTask('dev', ['build', 'copy:dev', 'watch']);
-	grunt.registerTask('prod', ['build', 'copy:prod', 'replace', 'requirejs']);
+	grunt.registerTask('dev', ['build', 'autoprefixer:dev', 'copy:dev', 'watch']);
+	grunt.registerTask('prod', ['build', 'autoprefixer:prod', 'copy:prod', 'replace', 'requirejs']);
 	grunt.registerTask('publish', ['prod', 'gh-pages']);
 
 	grunt.registerTask('default', ['build']);

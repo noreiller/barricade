@@ -5,12 +5,12 @@ See https://en.wikipedia.org/wiki/Malefiz
 
 ## To do
 
-* Enhance the notification panel w/ player specific informations (color when specific to user) and colored icon (click/open to back to normal)
-* Get rid of this alert with the name (lazy me...)
-* Align the board in the center of the page
+* Add a winner/loser panel
+* Localstorage with curent game
+* Remove views from board UI when models are destroyed
+* Load UI on the fly, not as dependency VS useful when packaging
 * Create more fun maps and with more players
 * When a (real) player passes its turn, check that he is not lazy
-* Migrate the board UI from DOM to CANVAS
 * Create a zoomable board: + and - buttons (within controls panel?)
 * Add some sounds: player turn, barricade captured, move error, etc.
 * Save the current game/user to restore them later
@@ -20,6 +20,18 @@ See https://en.wikipedia.org/wiki/Malefiz
 
 
 ## Changelog
+
+### 0.5alpha
+
+* More comprehensive UI
+* Add the elements to the document within the view
+* Set the turn and dice infos current user only
+* Made the notifications talking to the current user
+* Color update for player when game restarts
+* Migrate the board UI from DOM to CANVAS
+* Align the board in the center of the page
+* Get rid of background attribute for places
+
 
 ### 0.4
 

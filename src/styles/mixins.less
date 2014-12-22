@@ -7,6 +7,37 @@
 	@{property}: ~"@{remValue}rem";
 }
 
+//
+.OLD {
+	background-color: #eee;
+	border: 1px solid #eee;
+	border-radius: .5em;
+	color: #333;
+	cursor: default;
+	height: 1em;
+	line-height: 1em;
+	padding: .5em;
+	position: absolute;
+	text-align: center;
+	width: 1em;
+	top: 1em;
+	right: 1em;
+}
+
+// SET-UNSET DISPLAY
+._set-unset {
+	opacity: 0;
+
+	&.set {
+		// display: block;
+		opacity: 1;
+	}
+	&.unset {
+		// display: none;
+		opacity: 0;
+	}
+}
+
 // BOARD PIECES
 ._piece () {
 	border: 1px solid;
@@ -34,23 +65,6 @@
 	border-color: #fff;
 }
 
-// BUTTON(S) CONTROL
-._control () {
-	background-color: #eee;
-	border: 1px solid #eee;
-	border-radius: .5em;
-	color: #333;
-	cursor: default;
-	height: 1em;
-	line-height: 1em;
-	padding: .5em;
-	position: absolute;
-	text-align: center;
-	width: 1em;
-	top: 1em;
-	right: 1em;
-}
-
 // VENDOR TRANSFORM PROPERTY
 ._transform (@value) {
 	-webkit-transform: @value;
@@ -67,6 +81,30 @@
 }
 @keyframes opacity0to1 {
 	from { opacity: 0; } to { opacity: 1; }
+}
+
+/* CENTERED POSITIONS */
+._horizontal-centering (@more:'') {
+	position: relative;
+	left: 50%;
+	transform: ~"translateX(-50%) @{more}";
+}
+._vertical-centering (@more:'') {
+	position: relative;
+	top: 50%;
+	transform: ~"translateY(-50%) @{more}";
+}
+._full-centering (@more:'') {
+	position: absolute;
+	left: 50%;
+	top: 50%;
+	transform: ~"translateX(-50%) translateY(-50%) @{more}";
+}
+._no-centering (@more: inherit) {
+	position: static;
+	left: auto;
+	top: auto;
+	transform: @more;
 }
 
 /* ROTATE ANIMATION */
