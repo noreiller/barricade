@@ -6,7 +6,8 @@
 		, '../tools/tools'
 		, '../views/view.control'
 		, '../game/game.user'
-	], function (_, Backbone, Tools, ControlView, User) {
+		, '../game/game.events'
+	], function (_, Backbone, Tools, ControlView, User, Events) {
 		'use strict';
 
 		var View = ControlView.extend({
@@ -17,7 +18,7 @@
 
 				_.bindAll(this, 'render', 'check');
 
-				this.listenTo(this.model, 'change:turn', this.check);
+				this.listenTo(Events, 'game:turn', this.check);
 
 				this.insertElement();
 				this.render();
@@ -25,8 +26,8 @@
 				return this;
 			}
 
-			, check: function () {
-				if (User.storage.get('turn') !== this.model.get('turn')) {
+			, check: function (playerInfos) {
+				if (User.storage.get('value') !== playerInfos.value) {
 					this.hide();
 				}
 				else {

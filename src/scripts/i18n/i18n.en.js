@@ -15,14 +15,14 @@ define([], function () {
 		, end_title: 'The game has finished.'
 		, game_dice: '%name rolled the dice and got %0.'
 		, game_dice_self: 'You rolled the dice and got %0.'
-		, game_over: 'Game over'
-		, game_over_self: 'Game over'
 		, game_player_captured_barricade: '%name captured a barricade.'
 		, game_player_captured_barricade_self: 'You captured a barricade.'
 		, game_player_captured_player: '%name captured an opponent.'
 		, game_player_captured_player_self: 'You captured an opponent.'
 		, game_player_joins: "%name joined the game."
 		, game_player_joins_self: "You joined the game."
+		, game_player_lost: '%name lost the game.'
+		, game_player_lost_self: 'You lost the game.'
 		, game_player_moved: "%name played."
 		, game_player_moved_self: "You played."
 		, game_player_passes: "%name passed its turn."
@@ -35,8 +35,8 @@ define([], function () {
 		, game_player_resumed_self: 'You resumed the game.'
 		, game_player_turn: "It's the turn of %name."
 		, game_player_turn_self: "It's your turn."
-		, game_player_wins: "%name won the game."
-		, game_player_wins_self: "You won the game."
+		, game_player_won: "%name won the game."
+		, game_player_won_self: "You won the game."
 		, pause_title: "Pause"
 		, rules: "Rules of the game"
 		, rules_link: "https://en.wikipedia.org/wiki/Malefiz#Rules"

@@ -131,7 +131,7 @@
 
 			if (player) {
 				// Notify information
-				Events.trigger('game:notify', 'game_player_wins', player.toJSON());
+				Events.trigger('game:notify', 'game_player_won', player.toJSON());
 			}
 
 			return this;

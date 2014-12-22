@@ -18,8 +18,8 @@
 				this.empty();
 
 				var text = this.model.get('turn') === User.storage.get('turn')
-					? 'game_player_wins_self'
-					: 'game_over'
+					? 'game_player_won_self'
+					: 'game_player_lost'
 				;
 
 				this.el.innerHTML = this.template(_.extend(User.storage.toJSON(), {
