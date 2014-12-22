@@ -1,4 +1,4 @@
-/*! normalize.css v3.0.1 | MIT License | git.io/normalize */
+/*! normalize.css v3.0.2 | MIT License | git.io/normalize */
 /**
  * 1. Set default font family to sans-serif.
  * 2. Prevent iOS text size adjust after orientation change, without disabling
@@ -22,7 +22,8 @@ body {
    ========================================================================== */
 /**
  * Correct `block` display not defined for any HTML5 element in IE 8/9.
- * Correct `block` display not defined for `details` or `summary` in IE 10/11 and Firefox.
+ * Correct `block` display not defined for `details` or `summary` in IE 10/11
+ * and Firefox.
  * Correct `block` display not defined for `main` in IE 11.
  */
 article,
@@ -34,6 +35,7 @@ footer,
 header,
 hgroup,
 main,
+menu,
 nav,
 section,
 summary {
@@ -74,7 +76,7 @@ template {
  * Remove the gray background color from active links in IE 10.
  */
 a {
-  background: transparent;
+  background-color: transparent;
 }
 /**
  * Improve readability when focused and also mouse hovered in all browsers.
@@ -167,7 +169,6 @@ figure {
  * Address differences between Firefox and other browsers.
  */
 hr {
-  -moz-box-sizing: content-box;
   box-sizing: content-box;
   height: 0;
 }
@@ -296,8 +297,6 @@ input[type="number"]::-webkit-outer-spin-button {
 input[type="search"] {
   -webkit-appearance: textfield;
   /* 1 */
-  -moz-box-sizing: content-box;
-  -webkit-box-sizing: content-box;
   /* 2 */
   box-sizing: content-box;
 }
@@ -355,16 +354,32 @@ th {
   padding: 0;
 }
 
+.OLD {
+  background-color: #eee;
+  border: 1px solid #eee;
+  border-radius: .5em;
+  color: #333;
+  cursor: default;
+  height: 1em;
+  line-height: 1em;
+  padding: .5em;
+  position: absolute;
+  text-align: center;
+  width: 1em;
+  top: 1em;
+  right: 1em;
+}
+._set-unset {
+  opacity: 0;
+}
+._set-unset.set {
+  opacity: 1;
+}
+._set-unset.unset {
+  opacity: 0;
+}
 /* FADE IN ANIMATION */
 @-webkit-keyframes opacity0to1 {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}
-@-moz-keyframes opacity0to1 {
   from {
     opacity: 0;
   }
@@ -380,177 +395,124 @@ th {
     opacity: 1;
   }
 }
+/* CENTERED POSITIONS */
 /* ROTATE ANIMATION */
 @-webkit-keyframes shake {
   from {
     -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   10% {
     -webkit-transform: rotate(15deg);
-    -moz-transform: rotate(15deg);
     transform: rotate(15deg);
   }
   20% {
     -webkit-transform: rotate(-15deg);
-    -moz-transform: rotate(-15deg);
     transform: rotate(-15deg);
   }
   30% {
     -webkit-transform: rotate(15deg);
-    -moz-transform: rotate(15deg);
     transform: rotate(15deg);
   }
   40% {
     -webkit-transform: rotate(-15deg);
-    -moz-transform: rotate(-15deg);
     transform: rotate(-15deg);
   }
   50% {
     -webkit-transform: rotate(15deg);
-    -moz-transform: rotate(15deg);
     transform: rotate(15deg);
   }
   60% {
     -webkit-transform: rotate(-15deg);
-    -moz-transform: rotate(-15deg);
     transform: rotate(-15deg);
   }
   70% {
     -webkit-transform: rotate(15deg);
-    -moz-transform: rotate(15deg);
     transform: rotate(15deg);
   }
   80% {
     -webkit-transform: rotate(-15deg);
-    -moz-transform: rotate(-15deg);
     transform: rotate(-15deg);
   }
   90% {
     -webkit-transform: rotate(15deg);
-    -moz-transform: rotate(15deg);
     transform: rotate(15deg);
   }
   to {
     -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-}
-@-moz-keyframes shake {
-  from {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
-    transform: rotate(0deg);
-  }
-  10% {
-    -webkit-transform: rotate(15deg);
-    -moz-transform: rotate(15deg);
-    transform: rotate(15deg);
-  }
-  20% {
-    -webkit-transform: rotate(-15deg);
-    -moz-transform: rotate(-15deg);
-    transform: rotate(-15deg);
-  }
-  30% {
-    -webkit-transform: rotate(15deg);
-    -moz-transform: rotate(15deg);
-    transform: rotate(15deg);
-  }
-  40% {
-    -webkit-transform: rotate(-15deg);
-    -moz-transform: rotate(-15deg);
-    transform: rotate(-15deg);
-  }
-  50% {
-    -webkit-transform: rotate(15deg);
-    -moz-transform: rotate(15deg);
-    transform: rotate(15deg);
-  }
-  60% {
-    -webkit-transform: rotate(-15deg);
-    -moz-transform: rotate(-15deg);
-    transform: rotate(-15deg);
-  }
-  70% {
-    -webkit-transform: rotate(15deg);
-    -moz-transform: rotate(15deg);
-    transform: rotate(15deg);
-  }
-  80% {
-    -webkit-transform: rotate(-15deg);
-    -moz-transform: rotate(-15deg);
-    transform: rotate(-15deg);
-  }
-  90% {
-    -webkit-transform: rotate(15deg);
-    -moz-transform: rotate(15deg);
-    transform: rotate(15deg);
-  }
-  to {
-    -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
     transform: rotate(0deg);
   }
 }
 @keyframes shake {
   from {
     -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
     transform: rotate(0deg);
   }
   10% {
     -webkit-transform: rotate(15deg);
-    -moz-transform: rotate(15deg);
     transform: rotate(15deg);
   }
   20% {
     -webkit-transform: rotate(-15deg);
-    -moz-transform: rotate(-15deg);
     transform: rotate(-15deg);
   }
   30% {
     -webkit-transform: rotate(15deg);
-    -moz-transform: rotate(15deg);
     transform: rotate(15deg);
   }
   40% {
     -webkit-transform: rotate(-15deg);
-    -moz-transform: rotate(-15deg);
     transform: rotate(-15deg);
   }
   50% {
     -webkit-transform: rotate(15deg);
-    -moz-transform: rotate(15deg);
     transform: rotate(15deg);
   }
   60% {
     -webkit-transform: rotate(-15deg);
-    -moz-transform: rotate(-15deg);
     transform: rotate(-15deg);
   }
   70% {
     -webkit-transform: rotate(15deg);
-    -moz-transform: rotate(15deg);
     transform: rotate(15deg);
   }
   80% {
     -webkit-transform: rotate(-15deg);
-    -moz-transform: rotate(-15deg);
     transform: rotate(-15deg);
   }
   90% {
     -webkit-transform: rotate(15deg);
-    -moz-transform: rotate(15deg);
     transform: rotate(15deg);
   }
   to {
     -webkit-transform: rotate(0deg);
-    -moz-transform: rotate(0deg);
     transform: rotate(0deg);
   }
+}
+.icon {
+  display: inline-block;
+  fill: currentColor;
+  height: 10px;
+  height: 1rem;
+  width: 10px;
+  width: 1rem;
+}
+/* LAYOUT */
+html,
+body {
+  height: 100%;
+}
+body {
+  font-size: 15px;
+  font-size: 1.5rem;
+  background-color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  position: relative;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+body.loaded {
+  background-image: url('../medias/square_dark_texture.png');
 }
 .form-block fieldset {
   border: 0;
@@ -568,8 +530,8 @@ th {
   padding: .25em .5em;
 }
 .form-block label em {
-  font-size: 7.5px;
-  font-size: 0.75rem;
+  font-size: 10px;
+  font-size: 1rem;
   display: block;
   white-space: nowrap;
 }
@@ -597,78 +559,175 @@ th {
   color: #000;
   padding: .25em .5em;
 }
-.icon {
-  display: inline-block;
-  fill: currentColor;
-  height: 10px;
-  height: 1rem;
-  width: 10px;
-  width: 1rem;
-}
-.icon-play3 {
-  margin-right: -15%;
-}
-/* LAYOUT */
-html,
-body {
-  height: 100%;
-}
-body {
-  font-size: 10px;
-  font-size: 1rem;
-  background: url('../medias/square_dark_texture.png');
-  font-family: Arial, Helvetica, sans-serif;
-  position: relative;
-}
-.control {
-  width: 40px;
-  width: 4rem;
-  height: 40px;
-  height: 4rem;
+.control-component {
   background-color: #333333;
-  border-radius: .5em;
   border: 1px solid #eeeeee;
+  border-radius: .25em;
   color: #eeeeee;
-  display: inline-block;
-  padding: .25em;
-  text-align: center;
+  padding: .5em;
 }
-.control .icon {
-  height: 70%;
-  vertical-align: middle;
-  width: 70%;
-}
-.control .label {
-  display: none;
-}
-.control:focus,
-.control:hover {
+.control-component:hover {
   background: #eeeeee;
   color: #333333;
   border-color: #333333;
 }
-#board {
-  bottom: 2em;
-  cursor: default;
+.control-component > .icon,
+.control-component > .label {
   display: inline-block;
+}
+.control-component > .icon {
+  height: 70%;
+  width: 70%;
+  height: 17.5px;
+  height: 1.75rem;
+  width: 17.5px;
+  width: 1.75rem;
+  vertical-align: bottom;
+}
+.control-component > .icon + .label {
+  margin-left: 0.5em;
+}
+.controls-component {
+  opacity: 0;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  max-width: 50%;
+  z-index: 2;
+}
+.controls-component.set {
+  opacity: 1;
+}
+.controls-component.unset {
+  opacity: 0;
+}
+.controls-component .control {
+  margin-left: 1em;
+  height: 25px;
+  height: 2.5rem;
+}
+.controls-component .control.unset {
+  display: none;
+}
+.controls-component .control:first-child {
+  margin-left: 0;
+}
+.turn-component {
+  opacity: 0;
+  position: absolute;
+  top: 1em;
+  left: 4em;
+  width: auto;
+  z-index: 2;
+}
+.turn-component.set {
+  opacity: 1;
+}
+.turn-component.unset {
+  opacity: 0;
+}
+.turn-component > .icon {
+  border-radius: 50%;
+}
+.menu-component {
+  opacity: 0;
+  position: absolute;
+  top: 1em;
+  right: 1em;
+  max-width: 50%;
+  z-index: 2;
+}
+.menu-component.set {
+  opacity: 1;
+}
+.menu-component.unset {
+  opacity: 0;
+}
+.pass-component {
+  opacity: 0;
+  position: relative;
+  left: 50%;
+  -webkit-transform: translateX(-50%) ;
+      -ms-transform: translateX(-50%) ;
+          transform: translateX(-50%) ;
+  position: absolute;
+  top: 1em;
+  z-index: 2;
+}
+.pass-component.set {
+  opacity: 1;
+}
+.pass-component.unset {
+  opacity: 0;
+}
+.dice-component {
+  opacity: 0;
+  height: 17.5px;
+  height: 1.75rem;
+  width: 17.5px;
+  width: 1.75rem;
+  line-height: 17.5px;
+  line-height: 1.75rem;
+  background-color: #eee;
+  border-radius: .5em;
+  border: 1px solid #eee;
+  left: 1em;
+  padding: .5em;
+  position: absolute;
+  text-align: center;
+  top: 1em;
+}
+.dice-component.set {
+  opacity: 1;
+}
+.dice-component.unset {
+  opacity: 0;
+}
+.dice-component:before,
+.dice-component:after {
+  content: '';
+  background-color: #666;
+  border-radius: 50%;
+  height: .25em;
+  position: absolute;
+  width: .25em;
+}
+.dice-component:before {
+  right: .25em;
+  top: .25em;
+}
+.dice-component:after {
+  bottom: .25em;
+  left: .25em;
+}
+.dice-component.in {
+  -webkit-animation: shake .5s 0s;
+  animation: shake .5s 0s;
+}
+div#board {
+  bottom: 2em;
   left: 0;
   position: absolute;
   right: 0;
-  overflow: hidden;
   top: 3em;
-  transform: translate3d(0, 0, 0);
+}
+.board-component {
+  cursor: default;
+  overflow: hidden;
+  -webkit-transform: translate3d(0, 0, 0);
+          transform: translate3d(0, 0, 0);
   z-index: 1;
 }
-#board.unset {
+.board-component.unset {
   display: none;
 }
-#board:after {
+.board-component:after {
   content: "";
   display: table;
   clear: both;
 }
-#board .path,
-#board .piece {
+.board-component .path,
+.board-component .piece {
   font-size: 0;
   height: 1em;
   left: 0;
@@ -677,13 +736,11 @@ body {
   top: 0;
   width: 1em;
 }
-#board .path.path:after,
-#board .piece.path:after,
-#board .path:before,
-#board .piece:before {
+.board-component .path.path:after,
+.board-component .piece.path:after,
+.board-component .path:before,
+.board-component .piece:before {
   border: 1px solid;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
   font-size: 0em;
   height: 90%;
@@ -695,41 +752,37 @@ body {
   top: 3px;
   width: calc(100% - 6px);
 }
-#board .path.path:after,
-#board .piece.path:after {
+.board-component .path.path:after,
+.board-component .piece.path:after {
   border-color: transparent;
 }
-#board .path.draggable,
-#board .piece.draggable {
+.board-component .path.draggable,
+.board-component .piece.draggable {
   cursor: pointer;
 }
-#board .path.path.home:hover:after,
-#board .piece.path.home:hover:after {
+.board-component .path.path.home:hover:after,
+.board-component .piece.path.home:hover:after {
   border-color: inherit !important;
-  -webkit-box-shadow: inherit;
-  -moz-box-shadow: inherit;
   box-shadow: inherit;
   cursor: default;
 }
-#board .path.path.home.draggable:hover:after,
-#board .piece.path.home.draggable:hover:after,
-#board .path:hover:after,
-#board .piece:hover:after {
+.board-component .path.path.home.draggable:hover:after,
+.board-component .piece.path.home.draggable:hover:after,
+.board-component .path:hover:after,
+.board-component .piece:hover:after {
   border-color: green !important;
-  -webkit-box-shadow: 0 0 10px green;
-  -moz-box-shadow: 0 0 10px green;
   box-shadow: 0 0 10px green;
   cursor: pointer;
 }
-#board .path.path.home.draggable:hover:after,
-#board .piece.path.home.draggable:hover:after,
-#board .path.draggable:hover:after,
-#board .piece.draggable:hover:after {
+.board-component .path.path.home.draggable:hover:after,
+.board-component .piece.path.home.draggable:hover:after,
+.board-component .path.draggable:hover:after,
+.board-component .piece.draggable:hover:after {
   border-color: red !important;
   border-width: 3px;
 }
-#board .path.selected:after,
-#board .piece.selected:after {
+.board-component .path.selected:after,
+.board-component .piece.selected:after {
   border: 2px solid red;
   background-color: inherit;
   content: '';
@@ -740,136 +793,47 @@ body {
   right: -1px;
   border-radius: inherit;
 }
-#board .path.selected:after,
-#board .piece.selected:after {
+.board-component .path.selected:after,
+.board-component .piece.selected:after {
   -webkit-animation: opacity0to1 1s ease-in-out 0s infinite alternate;
-  -moz-animation: opacity0to1 1s ease-in-out 0s infinite alternate;
-  -o-animation: opacity0to1 1s ease-in-out 0s infinite alternate;
-  animation: opacity0to1 1s ease-in-out 0s infinite alternate;
+          animation: opacity0to1 1s ease-in-out 0s infinite alternate;
 }
-#board .path:before {
+.board-component .path:before {
   background-color: rgba(0, 0, 0, 0.1);
   color: #000;
   z-index: 1;
 }
-#board .path:after {
+.board-component .path:after {
   z-index: 4;
 }
-#board .path.goal:before {
+.board-component .path.goal:before {
   background-color: rgba(255, 0, 0, 0.5);
   border-color: #f00;
 }
-#board .path.barricade:before {
+.board-component .path.barricade:before {
   background-color: rgba(255, 0, 0, 0.25);
   border-color: #f00;
   border-color: inherit;
 }
-#board .path.home:before {
+.board-component .path.home:before {
   border-color: inherit;
 }
-#board .piece {
+.board-component .piece {
   z-index: 2;
 }
-#board .piece.ai:before,
-#board .piece.player:before {
+.board-component .piece.ai:before,
+.board-component .piece.player:before {
   background-color: currentColor;
   z-index: 2;
 }
-#board .piece.barricade:before {
+.board-component .piece.barricade:before {
   background-color: #ffffff;
   border-color: #fff;
   z-index: 3;
 }
-#controls {
-  background-color: #eee;
-  border: 1px solid #eee;
-  border-radius: .5em;
-  color: #333;
-  cursor: default;
-  height: 1em;
-  line-height: 1em;
-  padding: .5em;
-  position: absolute;
-  text-align: center;
-  width: 1em;
-  top: 1em;
-  right: 1em;
-  background-color: transparent;
-  border: 0;
-  padding: 0;
-  display: none;
-  height: auto;
-  left: 1em;
-  max-width: 50%;
-  right: auto;
-  width: auto;
-  z-index: 2;
-}
-#controls.set {
-  display: block;
-}
-#controls.unset {
-  display: none;
-}
-#controls .control {
-  margin-left: 1em;
-  width: 25px;
-  width: 2.5rem;
-  height: 25px;
-  height: 2.5rem;
-}
-#controls .control.unset {
-  display: none;
-}
-#controls .control:first-child {
-  margin-left: 0;
-}
-#dice {
-  background-color: #eee;
-  border: 1px solid #eee;
-  border-radius: .5em;
-  color: #333;
-  cursor: default;
-  height: 1em;
-  line-height: 1em;
-  padding: .5em;
-  position: absolute;
-  text-align: center;
-  width: 1em;
-  top: 1em;
-  right: 1em;
-  opacity: 0;
-}
-#dice:before,
-#dice:after {
-  content: '';
-  background-color: #666;
-  border-radius: .25em;
-  height: .25em;
-  position: absolute;
-  width: .25em;
-}
-#dice:before {
-  right: .25em;
-  top: .25em;
-}
-#dice:after {
-  bottom: .25em;
-  left: .25em;
-}
-#dice.set {
-  opacity: 1;
-}
-#dice.in {
-  -webkit-animation: shake .5s 0s;
-  -moz-animation: shake .5s 0s;
-  -o-animation: shake .5s 0s;
-  animation: shake .5s 0s;
-}
-#dice.unset {
-  opacity: 0;
-}
 #notification {
+  font-size: 10px;
+  font-size: 1rem;
   background-color: #eee;
   border-top: 1px solid #333;
   bottom: 0;
@@ -883,9 +847,6 @@ body {
   position: fixed;
   right: 0;
   -webkit-transition: bottom .5s, height .5s;
-  -moz-transition: bottom .5s, height .5s;
-  -ms-transition: bottom .5s, height .5s;
-  -o-transition: bottom .5s, height .5s;
   transition: bottom .5s, height .5s;
   z-index: 2;
 }
@@ -913,6 +874,14 @@ body {
 #notification.opened {
   height: 10em;
   overflow-y: visible;
+}
+#notification .message .bullet {
+  border-radius: 50%;
+  display: inline-block;
+  height: .5em;
+  margin-right: .5em;
+  vertical-align: middle;
+  width: .5em;
 }
 #panel {
   background-color: #000;
@@ -945,8 +914,8 @@ body {
   margin-bottom: 1rem;
 }
 #panel .title {
-  font-size: 20px;
-  font-size: 2rem;
+  font-size: 30px;
+  font-size: 3rem;
   letter-spacing: 5px;
   letter-spacing: 0.5rem;
   text-indent: 5px;
@@ -955,10 +924,18 @@ body {
   text-transform: uppercase;
 }
 #panel .subtitle {
-  font-size: 15px;
-  font-size: 1.5rem;
+  font-size: 20px;
+  font-size: 2rem;
 }
-#panel .rules,
+#panel .content {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translateX(-50%) translateY(-50%) ;
+      -ms-transform: translateX(-50%) translateY(-50%) ;
+          transform: translateX(-50%) translateY(-50%) ;
+}
+#panel .mentions,
 #panel .version {
   font-size: 7.5px;
   font-size: 0.75rem;
@@ -967,7 +944,7 @@ body {
   position: absolute;
   font-style: italic;
 }
-#panel .rules {
+#panel .mentions {
   left: 0;
 }
 #panel .version {
@@ -975,41 +952,12 @@ body {
 }
 #panel .controls {
   list-style-type: none;
-  margin: 0;
+  max-width: 50%;
   padding: 0;
 }
 #panel .controls li {
-  display: inline-block;
-  padding: 1em .5em;
+  padding: 1em 0;
 }
-#turn {
-  background-color: #eee;
-  border: 1px solid #eee;
-  border-radius: .5em;
-  color: #333;
-  cursor: default;
-  height: 1em;
-  line-height: 1em;
-  padding: .5em;
-  position: absolute;
-  text-align: center;
-  width: 1em;
-  top: 1em;
-  right: 1em;
-  opacity: 0;
-  right: 3.5em;
-  width: auto;
-}
-#turn > .color {
-  display: inline-block;
-  height: 1em;
-  margin-right: 0.5em;
-  vertical-align: middle;
-  width: 1em;
-}
-#turn.set {
-  opacity: 1;
-}
-#turn.unset {
-  opacity: 0;
+#panel .controls .control-component {
+  width: 100%;
 }

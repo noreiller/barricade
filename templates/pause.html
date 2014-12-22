@@ -1,0 +1,26 @@
+<h1 class="title"><%= dict.barricade %></h1>
+<h2 class="subtitle"><%= dict.pause_title %></h2>
+
+<ul class="controls content">
+	<li>
+		<button class="control-component" value="game:resume" title="<%= dict.control_resume_game %>">
+			<svg class="icon icon-play"><use xlink:href="#icon-play"></use></svg>
+			<span class="label"><%= dict.control_resume_game %></span>
+		</button>
+	</li>
+	<li>
+		<button class="control-component" value="game:reset" title="<%= dict.control_reset_game %>">
+			<svg class="icon icon-ccw"><use xlink:href="#icon-ccw"></use></svg>
+			<span class="label"><%= dict.control_reset_game %></span>
+		</button>
+	</li>
+	<li>
+		<button class="control-component" value="game:panel:user" title="<%= dict.control_user_settings %>">
+			<svg class="icon icon-vcard"><use xlink:href="#icon-vcard"></use></svg>
+			<span class="label"><%= dict.control_user_settings %></span>
+		</button>
+	</li>
+</ul>
+
+<span class="rules"><a href="<%= dict.rules_link %>" target="_blank"><%= dict.rules %></a></span>
+<span class="version"><%= dict.version %></span>
