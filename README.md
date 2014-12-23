@@ -20,6 +20,11 @@ See https://en.wikipedia.org/wiki/Malefiz
 
 ## Changelog
 
+### 0.6alpha
+
+* Added offline storage for the user settings
+
+
 ### 0.5
 
 * Add a winner/loser panel
