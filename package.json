@@ -23,15 +23,16 @@
     "grunt-requirejs": "~0.4.0"
   },
   "dependencies": {
-    "requirejs": "^2.1.11",
-    "backbone.babysitter": "^0.1.2",
     "backbone": "^1.1.2",
-    "underscore": "^1.6.0",
-    "randomcolor": "^0.1.1",
+    "backbone.babysitter": "^0.1.2",
+    "easing-js": "git://github.com/danro/easing-js",
     "easystarjs": "^0.1.7",
-    "normalize.css": "^3.0.1",
     "jquery.requestAnimationFrame": "git://github.com/gnarf/jquery-requestAnimationFrame",
+    "localforage": "^1.2.0",
+    "normalize.css": "^3.0.1",
+    "randomcolor": "^0.1.1",
+    "requirejs": "^2.1.11",
     "text": "git://github.com/requirejs/text",
-    "easing-js": "git://github.com/danro/easing-js"
+    "underscore": "^1.6.0"
   }
 }

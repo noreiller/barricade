@@ -21,46 +21,48 @@
 		var UI = {};
 
 		UI.render = function () {
-			this._views = new Backbone.ChildViewContainer();
+			if (!this._views) {
+				this._views = new Backbone.ChildViewContainer();
 
-			this._views.add(new WindowView(), 'window');
+				this._views.add(new WindowView(), 'window');
 
-			this._views.add(new BoardView({
-				collection: this._places
-				, id: 'board'
-			}), 'board');
+				this._views.add(new BoardView({
+					collection: this._places
+					, id: 'board'
+				}), 'board');
 
-			this._views.add(new DiceView({
-				model: this._settings
-				, id: 'dice'
-			}), 'dice');
+				this._views.add(new DiceView({
+					model: this._settings
+					, id: 'dice'
+				}), 'dice');
 
-			this._views.add(new TurnView({
-				model: this._settings
-				, id: 'turn'
-			}), 'turn');
+				this._views.add(new TurnView({
+					model: this._settings
+					, id: 'turn'
+				}), 'turn');
 
-			this._views.add(new PassView({
-				model: this._controls.findWhere({ name: 'pass' })
-				, id: 'pass'
-			}), 'pass');
+				this._views.add(new PassView({
+					model: this._controls.findWhere({ name: 'pass' })
+					, id: 'pass'
+				}), 'pass');
 
-			this._views.add(new MenuView({
-				model: this._controls.findWhere({ name: 'menu' })
-				, id: 'menu'
-			}), 'menu');
+				this._views.add(new MenuView({
+					model: this._controls.findWhere({ name: 'menu' })
+					, id: 'menu'
+				}), 'menu');
 
-			this._views.add(new NotificationView({
-				id: 'notification'
-			}), 'notification');
+				this._views.add(new NotificationView({
+					id: 'notification'
+				}), 'notification');
 
-			this._views.add(new PanelView({
-				model: this._settings
-				, id: 'panel'
-			}), 'panel');
+				this._views.add(new PanelView({
+					model: this._settings
+					, id: 'panel'
+				}), 'panel');
 
-			// The game is loaded
-			document.body.classList.add('loaded');
+				// The game is loaded
+				document.body.classList.add('loaded');
+			}
 
 			return this;
 		};

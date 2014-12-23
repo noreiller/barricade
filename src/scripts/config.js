@@ -10,6 +10,7 @@ require.config({
 		, 'easystar': '../../node_modules/easystarjs/bin/easystar-0.1.13'
 		, 'text': '../../node_modules/text/text'
 		, 'easing-js': '../../node_modules/easing-js/easing'
+		, 'localforage': '../../node_modules/localforage/dist/localforage'
 		// THREE: '../../bower_components/threejs/build/three'
 		// , OrbitControls: '../../bower_components/threejs/examples/js/controls/OrbitControls'
 	}
@@ -22,6 +23,9 @@ require.config({
 		}
 		, 'jquery.requestAnimationFrame': {
 			deps: ['jquery']
+		}
+		, 'localforage-backbone': {
+			deps: ['localforage']
 		}
 		// , THREE: {
 		// 	exports: 'THREE'

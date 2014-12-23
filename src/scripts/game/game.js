@@ -21,10 +21,7 @@
 		var App = _.extend(Backbone.Events, Moves, AI, UI);
 
 		App.initialize = function (settings) {
-			// User
-			if (!User.storage) {
-				User.initialize();
-			}
+			var self = this;
 
 			// Local collections
 			this._players = new PlayersCollection();
@@ -43,13 +40,6 @@
 			}]);
 			this._i18n = new I18nCollection(I18N);
 
-			// Stores user default settings
-			User.storage.set({
-				dict: this._i18n.getDetectedLanguage().toJSON()
-				, languages: this._i18n.getAvailableLanguages()
-				, language: this._i18n.detectLanguage()
-			});
-
 			// Listen to game events
 			this.listen();
 
@@ -58,17 +48,18 @@
 				settings = {};
 			}
 
-			// Unless there is a no-UI setting
-			if (!settings.noui) {
-				// Render the game
-				this.render();
-			}
-
 			// Proceed to settings validation
 			this._settings.set(settings, { validate: true });
 
+			// Stores user default settings
+			User.initialize({
+				dict: this._i18n.getDetectedLanguage().toJSON()
+				, languages: this._i18n.getAvailableLanguages()
+				, language: this._i18n.detectLanguage()
+			}, 'game:start');
+
 			// Start the game
-			this.startGame();
+			// this.startGame();
 
 			return this;
 		};
@@ -99,6 +90,7 @@
 			this.listenTo(Events, 'game:selection', this.placeSelected, this);
 			this.listenTo(Events, 'game:settings', this.startGame, this);
 			this.listenTo(Events, 'game:settings:update', this.updateSettings, this);
+			this.listenTo(Events, 'game:start', this.startGame, this);
 			this.listenTo(Events, 'game:user:language', this.updateUserLanguage, this);
 			this.listenTo(Events, 'game:user:update', this.updateUser, this);
 			this.listenTo(Events, 'game:won', this.stopGame, this);
@@ -107,6 +99,12 @@
 		};
 
 		App.startGame = function () {
+			// Unless there is a no-UI setting
+			if (!this._settings.get('noui')) {
+				// Render the game
+				this.render();
+			}
+
 			if (this._settings.get('mapName')) {
 				// Hide the settings panel
 				Events.trigger('game:panel:close');
@@ -249,9 +247,11 @@
 
 				// Update player informations to the user
 				User.storage.set(player.toJSON());
+				User.save();
 
 				// Notify changes
 				Events.trigger('game:user', User.storage.toJSON());
+				Events.trigger('game:notify', 'game_player_settings', User.storage.toJSON());
 			}
 
 			return this;
